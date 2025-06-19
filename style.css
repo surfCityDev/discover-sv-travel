@@ -1,0 +1,17 @@
+.hero img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #333;
+  padding: 0 1rem;
+}
