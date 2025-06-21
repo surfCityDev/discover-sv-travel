@@ -1,8 +1,8 @@
 .hero img {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  max-height: 350px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .hero h2 {
@@ -73,4 +73,20 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+}
+
+.site-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.site-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  margin: 8px auto 0;
+  border-bottom: 3px solid #009688;
 }
