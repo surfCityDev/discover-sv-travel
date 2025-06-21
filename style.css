@@ -16,13 +16,6 @@
   padding: 0 1rem;
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
 .card-container .card {
   width: 280px;
   background: white;
@@ -33,4 +26,36 @@
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.destinations {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+
+  .hero img {
+    height: 200px;
+  }
 }
