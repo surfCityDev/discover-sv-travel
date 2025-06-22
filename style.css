@@ -1,8 +1,14 @@
+.hero {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
 .hero img {
   width: 100%;
-  max-height: 350px;
-  object-fit: cover;
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;
 }
 
 .hero h2 {
@@ -56,9 +62,7 @@
     width: 90%;
   }
 
-  .hero img {
-    height: 200px;
-  }
+  
 }
 
 .card h3 {
