@@ -124,3 +124,65 @@ body {
 .menu a:hover {
   color: #90e0ef
 }
+
+#darkModeToggle {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode nav {
+  background-color: #222;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode h1 {
+  color: #ffffff;
+}
+
+.destination-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.destination-detail img {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.destination-detail h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
