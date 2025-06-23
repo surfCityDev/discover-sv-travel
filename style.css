@@ -186,3 +186,15 @@ body.dark-mode h1 {
 .back-link:hover {
   text-decoration: underline;
 }
+
+.vertical-detail-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh; /* Uses up to 80% of screen height */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
