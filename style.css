@@ -200,10 +200,13 @@ body.dark-mode h1 {
 }
 
 .detail-image {
-  width: 100%;
-  max-width: 800px;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: 80vh;
+  object-fit: contain;
   display: block;
-  margin: 1rem auto;
-  border-radius: 8px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
