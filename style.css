@@ -191,7 +191,7 @@ body.dark-mode h1 {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: 80vh; /* Uses up to 80% of screen height */
+  max-height: 80vh;
   object-fit: contain;
   display: block;
   margin: 0 auto 1.5rem auto;
