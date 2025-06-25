@@ -270,3 +270,8 @@ h2 {
 body.dark-mode .menu a:hover {
   color: #00d4ff; /* ✅ Good! */
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 1.5rem;
+}
