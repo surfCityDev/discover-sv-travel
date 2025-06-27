@@ -17,6 +17,10 @@
   </ul>
 </nav>
 
+    <div style="text-align: right; margin: 1rem;">
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+</div>
+
   <header class="hero">
     <h1 class="site-title">About DiscoverSVTravel</h1>
     <img src="Images/About_Hero.jpg" alt="El Salvador culture" />
@@ -45,6 +49,13 @@
   <footer style="text-align:center; margin-top: 2rem;">
     <p>© 2025 DiscoverSVTravel. All rights reserved.</p>
   </footer>
+
+    <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>

@@ -17,6 +17,10 @@
   </ul>
 </nav>
 
+  <div style="text-align: right; margin: 1rem;">
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+</div>
+
   <main>
   <div class="destination-detail">
     <h1>Experience the Cool Majesty of El Pital</h1>
@@ -46,6 +50,13 @@
     </div>
   </div>
 </main>
+
+    <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>

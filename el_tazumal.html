@@ -19,6 +19,10 @@
   </ul>
 </nav>
 
+    <div style="text-align: right; margin: 1rem;">
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+</div>
+
     <div class="destination-detail">
       <h1>El Tazumal</h1>
       <img class="detail-image" src="Images/El_Tazumal2.jpg" alt="El Tazumal Mayan Ruins" loading="lazy">
@@ -55,6 +59,13 @@
       </div>
     </div>
   </main>
+
+    <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
 
 </body>
 </html>

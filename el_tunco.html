@@ -17,6 +17,10 @@
   </ul>
 </nav>
 
+    <div style="text-align: right; margin: 1rem;">
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+</div>
+
     <main id="page-main-content">
       <section class="destination-detail">  
       <h1>El Tunco Beach</h1> 
@@ -57,4 +61,12 @@
       <div style="text-align: center; margin: 2rem 0;">
     <a href="index.html">← Back to Home</a>
   </div>
+
+    <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
   </body>
