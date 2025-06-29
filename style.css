@@ -191,3 +191,13 @@ h2 {
 body, .card, h1, h2, p, a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
