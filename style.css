@@ -1,4 +1,4 @@
-/* === Reset & Base === */
+
 * {
   margin: 0;
   padding: 0;
@@ -177,4 +177,14 @@ body.dark-mode .site-title::after {
   .card {
     width: 90%;
   }
+}
+
+.detail-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
 }
