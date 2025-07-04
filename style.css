@@ -1,3 +1,4 @@
+/* === Reset & Base === */
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +9,10 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
   color: #333;
-  padding: 1.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.site-title {
+h1.site-title {
   text-align: center;
   font-size: 2.5rem;
   margin: 1rem 0;
@@ -27,7 +27,7 @@ body {
   border-bottom: 3px solid #009688;
 }
 
-/* === Navigation Menu === */
+/* === Menu === */
 .menu {
   background-color: #0077b6;
   padding: 10px;
@@ -38,6 +38,7 @@ body {
   list-style: none;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .menu li {
@@ -48,31 +49,58 @@ body {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .menu a:hover {
   color: #90e0ef;
 }
 
-/* === Cards Section === */
+/* === Toggles === */
+.toggles {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.toggle-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #009688;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #00796b;
+}
+
+/* === Destinations === */
 .destinations {
+  padding: 40px 20px;
+}
+
+.card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   max-width: 1200px;
-  margin: 40px auto;
+  margin: auto;
 }
 
 .card {
   background-color: #fff;
-  width: 300px;
+  width: 280px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 
 .card:hover {
@@ -81,7 +109,7 @@ body {
 
 .card img {
   width: 100%;
-  height: 140px;
+  height: 150px;
   object-fit: cover;
   display: block;
 }
@@ -107,7 +135,7 @@ body {
   margin: 10px;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .card a:hover {
@@ -118,18 +146,13 @@ body {
 footer {
   text-align: center;
   margin-top: 2rem;
-  color: #666;
+  color: #005f73;
 }
 
 /* === Dark Mode === */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
-}
-
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
 }
 
 body.dark-mode .menu {
@@ -145,8 +168,13 @@ body.dark-mode .menu a:hover {
   color: #00d4ff;
 }
 
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+}
+
 body.dark-mode .card h3 {
-  color: #ffffff;
+  color: #fff;
 }
 
 body.dark-mode .card a {
@@ -157,38 +185,50 @@ body.dark-mode .card a:hover {
   background-color: #008e76;
 }
 
-.site-title::after {
-  border-bottom-color: #009688;
-}
-
 body.dark-mode .site-title::after {
   border-bottom-color: #00d4ff;
 }
 
-/* === Responsive === */
-@media (max-width: 1024px) {
-  .card {
-    width: 45%;
-  }
+/* === Bilingual === */
+.lang-en, .lang-es {
+  display: none;
 }
 
+body.lang-en .lang-en {
+  display: block;
+}
+
+body.lang-es .lang-es {
+  display: block;
+}
+
+/* === Responsive === */
 @media (max-width: 768px) {
   .card {
     width: 90%;
   }
 }
 
-/* === Hero & Top Images === */
-.hero img, 
-.top-image, 
-.detail-image {
-  width: 100%;
-  max-width: 1000px;  /* keeps image from getting too wide on big screens */
-  max-height: 350px;  /* adjust height as needed */
-  object-fit: cover;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 8px;
+/* === Language Toggle === */
+.en { display: inline; }
+.es { display: none; }
+
+/* Button styling */
+#langToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
+#langToggle:hover {
+  background-color: #00796b;
+}
 
