@@ -7,26 +7,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1 class="site-title">El Tunco + Tamanique Waterfalls</h1>
+  <h1 class="site-title">DiscoverSVTravel</h1>
+
   <nav class="menu">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="lang lang-en">Home</a><a href="index.html" class="lang lang-es">Inicio</a></li>
+      <li><a href="about.html" class="lang lang-en">About</a><a href="about.html" class="lang lang-es">Acerca de</a></li>
+      <li><a href="contact.html" class="lang lang-en">Contact</a><a href="contact.html" class="lang lang-es">Contacto</a></li>
     </ul>
   </nav>
 
-  <section class="destinations">
-    <div class="card">
-      <img src="Images/Tamanique_Cascade.jpg" alt="El Tunco Beach">
-       <h3>El Tunco + Tamanique Waterfalls</h3>
-      <p>Relax on volcanic beaches and hike to hidden jungle waterfalls — perfect for adventure & sunset views.</p>
-    </div>
+  <button id="languageToggle">ES</button>
+
+  <section class="destination-detail">
+    <h2 class="lang lang-en">El Tunco + Tamanique Waterfalls</h2>
+    <h2 class="lang lang-es">El Tunco + Cascadas de Tamanique</h2>
+
+    <img src="Images/El_Tunco_Beach.jpg" alt="El Tunco Beach">
+    <img src="Images/Tamanique_Cascade.jpg" alt="Tamanique Waterfalls">
+
+    <p class="lang lang-en">
+      Relax on volcanic black sand beaches and hike to hidden jungle waterfalls where you can swim and enjoy breathtaking nature. 
+    </p>
+    <p class="lang lang-es">
+      Relájate en playas de arena volcánica y camina hasta cascadas escondidas en la selva, donde puedes nadar y disfrutar de la naturaleza impresionante.
+    </p>
   </section>
 
-  <footer style="text-align:center; margin-top: 2rem;">
+  <a href="index.html" class="back-link lang lang-en">← Back to Home</a>
+  <a href="index.html" class="back-link lang lang-es">← Volver al Inicio</a>
+
+  <footer>
     <p>© 2025 DiscoverSVTravel. All rights reserved.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
