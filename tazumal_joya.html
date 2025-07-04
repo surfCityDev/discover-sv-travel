@@ -3,38 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tazumal + Joya de Cerén Tour</title>
+  <title>Tazumal & Joya de Cerén - DiscoverSVTravel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="menu">
+  <h1 class="site-title">DiscoverSVTravel</h1>
+
+  <nav class="menu">
     <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="lang lang-en">Home</a><a href="index.html" class="lang lang-es">Inicio</a></li>
+      <li><a href="about.html" class="lang lang-en">About</a><a href="about.html" class="lang lang-es">Acerca de</a></li>
+      <li><a href="contact.html" class="lang lang-en">Contact</a><a href="contact.html" class="lang lang-es">Contacto</a></li>
     </ul>
-  </div>
+  </nav>
 
-  <h1>Mayan Ruins Combo: Tazumal + Joya de Cerén</h1>
-  <img class="detail-image" src="Images/El_Tazumal2.jpg" alt="Tazumal Mayan ruins">
-  <p>
-    Explore two of El Salvador’s most important archaeological treasures:
-    <ol>
-      <li>Guided tour of the impressive Tazumal pyramids</li>
-      <li>Discover Joya de Cerén, the “Pompeii of the Americas” (UNESCO World Heritage Site)</li>
-      <li>Lunch at a local restaurant (all-inclusive option)</li>
-      <li>Learn about ancient daily life and ceremonial sites</li>
-      <li>Includes guide, transport, entry fees & bottled water</li>
-    </ol>
-  </p>
-  <p><strong>Price:</strong> $75 per person (with lunch)</p>
-  <p><strong>Perfect for:</strong> History lovers, cultural explorers, and families</p>
+  <button id="languageToggle">ES</button>
 
-  <a class="back-link" href="home.html">← Back to Home</a>
+  <section class="destination-detail">
+    <h2 class="lang lang-en">Tazumal & Joya de Cerén</h2>
+    <h2 class="lang lang-es">Tazumal y Joya de Cerén</h2>
 
-  <button id="darkModeToggle">Toggle Dark Mode</button>
+    <img src="Images/Tazumal_Ruins.jpg" alt="Tazumal pyramids">
+    <img src="Images/Joya_de_Ceren1.jpg" alt="Joya de Cerén ruins">
 
-  <footer style="text-align:center; margin-top: 2rem;">
+    <p class="lang lang-en">
+      Discover El Salvador's rich Mayan history at the impressive Tazumal pyramids and the UNESCO-protected village of Joya de Cerén.
+    </p>
+    <p class="lang lang-es">
+      Descubre la historia maya de El Salvador visitando las impresionantes pirámides de Tazumal y el sitio protegido por la UNESCO de Joya de Cerén.
+    </p>
+  </section>
+
+  <a href="index.html" class="back-link lang lang-en">← Back to Home</a>
+  <a href="index.html" class="back-link lang lang-es">← Volver al Inicio</a>
+
+  <footer>
     <p>© 2025 DiscoverSVTravel. All rights reserved.</p>
   </footer>
 
