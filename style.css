@@ -177,3 +177,18 @@ body.dark-mode .site-title::after {
     width: 90%;
   }
 }
+
+/* === Hero & Top Images === */
+.hero img, 
+.top-image, 
+.detail-image {
+  width: 100%;
+  max-width: 1000px;  /* keeps image from getting too wide on big screens */
+  max-height: 350px;  /* adjust height as needed */
+  object-fit: cover;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+
+
