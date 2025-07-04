@@ -3,37 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suchitoto Cultural Experience</title>
+  <title>Suchitoto Colonial Charm - DiscoverSVTravel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="menu">
+  <h1 class="site-title">DiscoverSVTravel</h1>
+
+  <nav class="menu">
     <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="lang lang-en">Home</a><a href="index.html" class="lang lang-es">Inicio</a></li>
+      <li><a href="about.html" class="lang lang-en">About</a><a href="about.html" class="lang lang-es">Acerca de</a></li>
+      <li><a href="contact.html" class="lang lang-en">Contact</a><a href="contact.html" class="lang lang-es">Contacto</a></li>
     </ul>
-  </div>
+  </nav>
 
-  <h1>Suchitoto Cultural Experience (Full-Day)</h1>
-  <img class="detail-image" src="Images/Suchitoto_Colonial_Town.jpg" alt="Colonial streets of Suchitoto">
-  <p>
-    Immerse yourself in the cultural heart of El Salvador:
-    <ol>
-      <li>Stroll through colonial streets & visit the historic church</li>
-      <li>Participate in an indigo dyeing workshop or visit a local museum</li>
-      <li>Optional boat tour on scenic Lake Suchitlán</li>
-    </ol>
-  </p>
-  <p><strong>Price:</strong> $65 per person</p>
-  <p><strong>Includes:</strong> Guide, transportation, lunch, bottled water</p>
-  <p><strong>Perfect for:</strong> Culture enthusiasts, art lovers, and photographers</p>
+  <button id="languageToggle">ES</button>
 
-  <a class="back-link" href="home.html">← Back to Home</a>
+  <section class="destination-detail">
+    <h2 class="lang lang-en">Suchitoto Colonial Charm</h2>
+    <h2 class="lang lang-es">Encanto Colonial de Suchitoto</h2>
 
-  <button id="darkModeToggle">Toggle Dark Mode</button>
+    <img src="Images/Suchitoto_Colonial_Town.jpg" alt="Suchitoto colonial town">
+    <img src="Images/Suchitoto_Church.jpg" alt="Suchitoto church">
 
-  <footer style="text-align:center; margin-top: 2rem;">
+    <p class="lang lang-en">
+      Stroll along cobblestone streets, admire colonial-era architecture, and enjoy beautiful lake views in one of El Salvador’s most charming towns.
+    </p>
+    <p class="lang lang-es">
+      Pasea por calles empedradas, admira la arquitectura colonial y disfruta de hermosas vistas al lago en uno de los pueblos más encantadores de El Salvador.
+    </p>
+  </section>
+
+  <a href="index.html" class="back-link lang lang-en">← Back to Home</a>
+  <a href="index.html" class="back-link lang lang-es">← Volver al Inicio</a>
+
+  <footer>
     <p>© 2025 DiscoverSVTravel. All rights reserved.</p>
   </footer>
 
