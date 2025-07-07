@@ -7,37 +7,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <button id="langToggle">Español</button>
-
-  <h1 class="site-title">
-    <span class="en">About DiscoverSVTravel</span>
-    <span class="es">Acerca de DescubreSVViajes</span>
-  </h1>
+  <header>
+    <h1 class="site-title" data-en="About Us" data-es="Acerca de Nosotros">About Us</h1>
+    <div class="toggles">
+      <button class="language-toggle" onclick="toggleLanguage()">ES</button>
+      <button class="dark-mode-toggle">🌙</button>
+    </div>
+  </header>
 
   <nav class="menu">
     <ul>
-      <li><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a></li>
-      <li><a href="about.html"><span class="en">About</span><span class="es">Acerca de</span></a></li>
-      <li><a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Acerca">About</a></li>
+      <li><a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a></li>
     </ul>
   </nav>
 
-  <section style="max-width:800px; margin:auto; padding:20px; text-align:center;">
-    <p>
-      <span class="en">DiscoverSVTravel was born from a love of El Salvador’s beauty and culture. We connect travelers with authentic local experiences — from volcano hikes and surf beaches to colonial towns and hidden waterfalls.</span>
-      <span class="es">DescubreSVViajes nació del amor por la belleza y cultura de El Salvador. Conectamos a los viajeros con experiencias locales auténticas: desde caminatas a volcanes y playas de surf hasta pueblos coloniales y cascadas escondidas.</span>
+  <main class="content">
+    <img src="Images/About_Hero.jpg" alt="Byron Rogel - Tour Guide" class="hero-image">
+    <h2 data-en="Meet Byron Rogel" data-es="Conoce a Byron Rogel">Meet Byron Rogel</h2>
+    <p data-en="Hola! My name is Byron Rogel, founder of HolaSV Tours and DiscoverSVTravel. As a local from Surf City, I created this project to share the beauty, culture, and hidden gems of my country with travelers from all over the world."
+       data-es="¡Hola! Mi nombre es Byron Rogel, fundador de HolaSV Tours y DiscoverSVTravel. Como local de Surf City, creé este proyecto para compartir la belleza, la cultura y los tesoros escondidos de mi país con viajeros de todo el mundo.">
+      Hola! My name is Byron Rogel, founder of HolaSV Tours and DiscoverSVTravel. As a local from Surf City, I created this project to share the beauty, culture, and hidden gems of my country with travelers from all over the world.
     </p>
-    <p style="margin-top:1rem;">
-      <span class="en">Our mission is to make exploring El Salvador easy, memorable, and culturally rich — for visitors from around the world.</span>
-      <span class="es">Nuestra misión es que explorar El Salvador sea fácil, memorable y lleno de cultura para visitantes de todo el mundo.</span>
+    <p data-en="I’m passionate about connecting visitors with authentic experiences — from surfing our famous waves to exploring ancient ruins, volcanoes, and colonial towns. Join us to discover the real El Salvador, safely and memorably!"
+       data-es="Me apasiona conectar a los visitantes con experiencias auténticas: desde surfear nuestras famosas olas hasta explorar ruinas antiguas, volcanes y pueblos coloniales. ¡Únete para descubrir el verdadero El Salvador de forma segura y memorable!">
+      I’m passionate about connecting visitors with authentic experiences — from surfing our famous waves to exploring ancient ruins, volcanoes, and colonial towns. Join us to discover the real El Salvador, safely and memorably!
     </p>
-  </section>
+    <p data-en="📱 Contact me on WhatsApp: +503-7259-3558"
+       data-es="📱 Contáctame en WhatsApp: +503-7259-3558">
+      📱 Contact me on WhatsApp: +503-7259-3558
+    </p>
+  </main>
 
-  <footer style="text-align:center; margin-top: 2rem;">
-    <p>
-      <span class="en">© 2025 DiscoverSVTravel. All rights reserved.</span>
-      <span class="es">© 2025 DescubreSVViajes. Todos los derechos reservados.</span>
+  <footer>
+    <p data-en="© 2025 DiscoverSVTravel. All rights reserved." data-es="© 2025 DiscoverSVTravel. Todos los derechos reservados.">
+      © 2025 DiscoverSVTravel. All rights reserved.
     </p>
   </footer>
 

@@ -7,37 +7,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <button id="langToggle">Español</button>
-
-  <h1 class="site-title">
-    <span class="en">Contact Us</span>
-    <span class="es">Contáctanos</span>
-  </h1>
+  <header>
+    <h1 class="site-title" data-en="Contact Us" data-es="Contáctanos">Contact Us</h1>
+    <div class="toggles">
+      <button class="language-toggle" onclick="toggleLanguage()">ES</button>
+      <button class="dark-mode-toggle">🌙</button>
+    </div>
+  </header>
 
   <nav class="menu">
     <ul>
-      <li><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a></li>
-      <li><a href="about.html"><span class="en">About</span><span class="es">Acerca de</span></a></li>
-      <li><a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Acerca">About</a></li>
+      <li><a href="contact.html" data-en="Contact" data-es="Contacto">Contact</a></li>
     </ul>
   </nav>
 
-  <section style="max-width:800px; margin:auto; padding:20px; text-align:center;">
-    <p>
-      <span class="en">We’d love to hear from you! Whether you have questions about our tours, suggestions, or need help planning your trip, just reach out.</span>
-      <span class="es">¡Nos encantaría saber de ti! Si tienes preguntas sobre nuestros tours, sugerencias o necesitas ayuda para planificar tu viaje, contáctanos.</span>
+  <main class="content">
+    <h2 data-en="Let's Plan Your Adventure!" data-es="¡Planifiquemos Tu Aventura!">Let's Plan Your Adventure!</h2>
+    <p data-en="Ready to explore El Salvador? Have a question about a tour or want to customize your trip?"
+       data-es="¿Listo para explorar El Salvador? ¿Tienes preguntas sobre un tour o quieres personalizar tu viaje?">
+      Ready to explore El Salvador? Have a question about a tour or want to customize your trip?
     </p>
-    <p style="margin-top:1rem;">
-      <span class="en">Email us at: holasvtours@gmail.com</span>
-      <span class="es">Escríbenos a: holasvtours@gmail.com</span>
+    <p data-en="Send me a WhatsApp message directly: +503-7259-3558"
+       data-es="Envíame un mensaje por WhatsApp: +503-7259-3558">
+      Send me a WhatsApp message directly: +503-7259-3558
     </p>
-  </section>
+    <p data-en="Or email us anytime: holasvtours@gmail.com"
+       data-es="O envíanos un correo electrónico: holasvtours@gmail.com">
+      Or email us anytime: holasvtours@gmail.com
+    </p>
+  </main>
 
-  <footer style="text-align:center; margin-top: 2rem;">
-    <p>
-      <span class="en">© 2025 DiscoverSVTravel. All rights reserved.</span>
-      <span class="es">© 2025 DescubreSVViajes. Todos los derechos reservados.</span>
+  <footer>
+    <p data-en="© 2025 DiscoverSVTravel. All rights reserved." data-es="© 2025 DiscoverSVTravel. Todos los derechos reservados.">
+      © 2025 DiscoverSVTravel. All rights reserved.
     </p>
   </footer>
 
