@@ -13,7 +13,10 @@ body {
 }
 
 header {
-  background: #8B2E2E;  /* warm earthy red */
+  background: #8B2E2E;  /* or whatever your current header color */
+  text-align: center;    /* center-align text */
+  padding: 1.5rem 1rem;  /* add some vertical and horizontal padding */
+  color: white;          /* ensure text is visible */
 }
 
 header h1 {
