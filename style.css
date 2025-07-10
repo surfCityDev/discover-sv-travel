@@ -13,15 +13,14 @@ body {
 }
 
 header {
-  background: #8B2E2E;  /* or whatever your current header color */
-  text-align: center;    /* center-align text */
-  padding: 1.5rem 1rem;  /* add some vertical and horizontal padding */
-  color: white;          /* ensure text is visible */
+  background: #E4B363; /* colonial yellow */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #333; /* dark gray for readability */
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+header h1, header p {
+  margin: 0;
 }
 
 main {
@@ -30,7 +29,7 @@ main {
 }
 
 h2, section h3 {
-  color: #8B2E2E;
+  color: #8B2E2E; /* deep red accent */
 }
 
 section {
@@ -51,7 +50,7 @@ button {
 }
 
 button:hover {
-  background: #E07B3E;  /* warm orange accent */
+  background: #5C1F1F; /* darker red on hover */
 }
 
 footer {
