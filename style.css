@@ -84,18 +84,21 @@ footer {
 
 .tour-card .images {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .tour-card img {
-  width: 100%;
-  max-height: 180px;      /* adjust to match card size */
+  flex: 1 1 45%;
+  aspect-ratio: 4/3;         /* force all images to be the same shape */
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  flex: 1 1 45%;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-}
+
+
