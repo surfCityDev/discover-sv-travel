@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background: #008080;  /* deep teal */
+  background: #8B2E2E;  /* warm earthy red */
 }
 
 header h1 {
@@ -27,7 +27,7 @@ main {
 }
 
 h2, section h3 {
-  color: #008080;
+  color: #8B2E2E;
 }
 
 section {
@@ -43,12 +43,12 @@ section p {
 }
 
 button {
-  background: #008080;
+  background: #8B2E2E;
   color: #fff;
 }
 
 button:hover {
-  background: #006666;  /* darker teal on hover */
+  background: #E07B3E;  /* warm orange accent */
 }
 
 footer {
