@@ -108,5 +108,21 @@ footer {
   height: auto;
 }
 
+button.book-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.book-btn:hover {
+  background-color: #1DA851;
+}
+
+
 
 
