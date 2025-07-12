@@ -94,10 +94,12 @@ footer {
 
 .tour-card img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 200px;      /* adjust this number until it feels right */
   object-fit: cover;
+  display: block;
+  border-radius: 6px; /* optional: makes corners round like cards */
 }
+
 
 
 button.book-btn {
