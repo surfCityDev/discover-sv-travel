@@ -83,11 +83,12 @@ footer {
 }
 
 .tour-card {
-  max-width: 300px; /* adjust as needed */
   width: 100%;
-  margin: 1rem auto;
+  max-width: 600px;   /* makes cards wider and equal on desktop */
+  margin: 1.5rem auto;
   box-sizing: border-box;
 }
+
 
 
 
@@ -95,8 +96,9 @@ footer {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;  /* makes sure images keep aspect ratio */
+  object-fit: cover;
 }
+
 
 button.book-btn {
   background-color: #25D366;
