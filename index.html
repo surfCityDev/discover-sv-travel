@@ -8,6 +8,9 @@
 </head>
 <body>
   <header>
+
+    <button id="toggle-lang" class="lang-btn">Ver en Español</button>
+
     <h1>Discover-SV-Travel</h1>
     
   </header>
@@ -130,6 +133,110 @@
       </a>
     </section>
   </main>
+
+  <script>
+  const translations = {
+    es: {
+      headerTitle: "Descubre El Salvador con Nosotros",
+      headerSubtitle: "Tours auténticos, aventuras y cultura local",
+
+      craterTourTitle: "Experiencia Cráter y Centro Histórico",
+      craterTourDesc: "Explora el majestuoso volcán El Boquerón, recorre el centro histórico de San Salvador incluyendo la Catedral y el Palacio Nacional, y visita la moderna Biblioteca Nacional BINAES. Incluye transporte, guía y agua embotellada.",
+
+      tuncoTourTitle: "El Tunco + Cascadas de Tamanique",
+      tuncoTourDesc: "Empieza el día con una caminata por senderos hasta llegar a las cascadas escondidas de Tamanique, donde puedes nadar o hacer saltos de acantilado. Luego relájate en el pueblo surfista El Tunco y disfruta de un atardecer inolvidable.",
+
+      ilamatepecTourTitle: "Ascenso al Volcán Ilamatepec",
+      ilamatepecTourDesc: "Desafíate con una caminata guiada hasta la cima del volcán más alto de El Salvador. Desde el cráter, contempla la impresionante laguna turquesa y paisajes montañosos. Finaliza en el Lago de Coatepeque para fotos panorámicas y relax.",
+
+      suchitotoTourTitle: "Experiencia Cultural en Suchitoto",
+      suchitotoTourDesc: "Descubre el encanto colonial de Suchitoto con sus calles empedradas, visita el Lago Suchitlán y disfruta de talleres de añil o galerías de arte locales. Ideal para amantes de la historia y la cultura salvadoreña.",
+
+      floresTourTitle: "Ruta de las Flores: Café y Cultura",
+      floresTourDesc: "Viaja por la pintoresca Ruta de las Flores, famosa por sus pueblos coloridos y cafetales. Visita el festival gastronómico de Juayúa, explora el arte callejero de Ataco y disfruta de la aventura en Café Albania.",
+
+      pitalTourTitle: "Escapada a las Alturas de El Pital",
+      pitalTourDesc: "Disfruta de un recorrido panorámico hasta el punto más alto de El Salvador. Camina por el bosque nuboso, respira aire fresco y admira vistas espectaculares. Opcional: picnic o experiencia de campamento.",
+
+      cobanosTourTitle: "Experiencia de Snorkel en Los Cóbanos",
+      cobanosTourDesc: "Sumérgete en la aventura en Los Cóbanos, hogar de uno de los arrecifes de coral más bellos del país. Descubre vida marina vibrante con guía especializado y relájate en la playa después del snorkel.",
+
+      mayanTourTitle: "Ruta Maya: Tazumal y Joya de Cerén",
+      mayanTourDesc: "Viaja al pasado visitando las ruinas mayas de Tazumal y el sitio arqueológico Joya de Cerén, Patrimonio Mundial UNESCO. Una experiencia imperdible para los amantes de la historia antigua.",
+
+      bookNow: "Reservar Ahora",
+      seeInEnglish: "See in English"
+    },
+    en: {
+      headerTitle: "Discover El Salvador with Us",
+      headerSubtitle: "Authentic tours, adventures, and local culture",
+
+      craterTourTitle: "Crater & Capital Culture Experience",
+      craterTourDesc: "Explore the impressive El Boquerón volcano, discover San Salvador's historic center, and visit the new BINAES National Library. Includes transportation, guide, and bottled water.",
+
+      tuncoTourTitle: "El Tunco + Tamanique Waterfalls Adventure",
+      tuncoTourDesc: "Start your day hiking to the hidden Tamanique waterfalls, then relax in the surf town of El Tunco, enjoying local food and a stunning Pacific sunset.",
+
+      ilamatepecTourTitle: "Ilamatepec Volcano Hike",
+      ilamatepecTourDesc: "Challenge yourself with a guided hike to the top of Ilamatepec, El Salvador’s highest volcano. At the summit, take in breathtaking views of the vivid turquoise crater lake and surrounding mountains. After the hike, stop at Lake Coatepeque for stunning photos and relaxation.",
+
+      suchitotoTourTitle: "Suchitoto Cultural Experience",
+      suchitotoTourDesc: "Discover the colonial charm of Suchitoto with its cobbled streets, visit Lake Suchitlán, and enjoy indigo workshops or local art galleries. Ideal for history and culture lovers.",
+
+      floresTourTitle: "Ruta de las Flores: Coffee & Culture Day",
+      floresTourDesc: "Travel along the picturesque Ruta de las Flores, famous for its colorful towns and coffee farms. Visit the Juayúa food festival, explore Ataco’s vibrant street art, and enjoy adventure at Café Albania.",
+
+      pitalTourTitle: "El Pital Highland Escape",
+      pitalTourDesc: "Enjoy a scenic drive to El Salvador’s highest point. Walk through the cloud forest, breathe fresh air, and take in spectacular views. Optional: picnic or camping experience.",
+
+      cobanosTourTitle: "Los Cóbanos Snorkeling Experience",
+      cobanosTourDesc: "Dive into adventure at Los Cóbanos, home to one of El Salvador’s most beautiful coral reefs. Discover vibrant marine life with a specialized guide, then relax on the beach afterward.",
+
+      mayanTourTitle: "Mayan Ruins Combo: Tazumal + Joya de Cerén",
+      mayanTourDesc: "Travel back in time visiting the Mayan ruins of Tazumal and the UNESCO World Heritage site of Joya de Cerén. A must-see for ancient history lovers.",
+
+      bookNow: "Book Now",
+      seeInSpanish: "Ver en Español"
+    }
+  };
+
+  let currentLang = 'en';
+
+  document.getElementById('toggle-lang').addEventListener('click', () => {
+    currentLang = (currentLang === 'en') ? 'es' : 'en';
+
+    // Header
+    document.querySelector('header h1').textContent = translations[currentLang].headerTitle;
+    document.querySelector('header p').textContent = translations[currentLang].headerSubtitle;
+
+    // Tour cards titles and descriptions
+    const titles = [
+      'craterTourTitle', 'tuncoTourTitle', 'ilamatepecTourTitle', 'suchitotoTourTitle',
+      'floresTourTitle', 'pitalTourTitle', 'cobanosTourTitle', 'mayanTourTitle'
+    ];
+    const descs = [
+      'craterTourDesc', 'tuncoTourDesc', 'ilamatepecTourDesc', 'suchitotoTourDesc',
+      'floresTourDesc', 'pitalTourDesc', 'cobanosTourDesc', 'mayanTourDesc'
+    ];
+
+    document.querySelectorAll('.tour-card h3').forEach((el, idx) => {
+      el.textContent = translations[currentLang][titles[idx]];
+    });
+    document.querySelectorAll('.tour-card p').forEach((el, idx) => {
+      el.textContent = translations[currentLang][descs[idx]];
+    });
+
+    // Book buttons
+    document.querySelectorAll('.book-btn').forEach(btn => {
+      btn.textContent = translations[currentLang].bookNow;
+    });
+
+    // Toggle button text
+    document.getElementById('toggle-lang').textContent =
+      (currentLang === 'en') ? translations.en.seeInSpanish : translations.es.seeInEnglish;
+  });
+</script>
+
 
   <footer>
     <p>© 2025 HolaSV Tours - DiscoverSVTravel</p>
