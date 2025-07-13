@@ -117,6 +117,12 @@ button.book-btn:hover {
   background-color: #1DA851;
 }
 
+.story {
+  font-style: italic;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
 
 
 
