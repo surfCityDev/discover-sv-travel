@@ -180,4 +180,20 @@ form button[type="submit"]:hover {
   background-color: #5C1F1F;
 }
 
+.subscribe-btn {
+  background-color: #E4B363; /* colonial yellow */
+  color: #333;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: #c99a3e;
+}
 
