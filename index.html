@@ -1,298 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover-SV-Travel</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="metaTitle">Discover-SV-Travel</title>
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Small local CSS for gallery + price block + minor adjustments -->
+  <style>
+    /* Gallery grid */
+    .gallery {
+      max-width: 1100px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #f4f4f4;
+    }
+    .gallery-item img, .gallery-item video {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .gallery-item .caption {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      background: rgba(0,0,0,0.55);
+      color: white;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* Lightbox modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display:flex; }
+    .lightbox-content {
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .lightbox-close {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      z-index: 10;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .lightbox img, .lightbox video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+
+    /* Price comparison badge */
+    .price-badge {
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: linear-gradient(180deg,#fff,#f7f7f7);
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      font-weight: 700;
+      margin-left: 10px;
+      font-size: 0.95rem;
+    }
+    .price-compare { display:block; font-size: 0.85rem; color: #777; margin-top:4px; font-weight:600; }
+
+    /* other small layout tweaks */
+    header {
+      background: #E4B363;
+      text-align: center;
+      padding: 1.2rem 1rem;
+      color: #333;
+    }
+    nav a { margin: 0 8px; color: #333; text-decoration:none; font-weight:600; }
+    .lang-btn { position:absolute; right:12px; top:12px; background:#0077ff; color:#fff; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; }
+    main { max-width:1100px; margin: 28px auto; padding: 0 16px; }
+    .tour-card { margin-bottom: 22px; padding: 18px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    .tour-card .meta { display:flex; align-items:center; gap:12px; margin-top:8px; flex-wrap:wrap; }
+    .book-btn { padding:10px 14px; border-radius:8px; border:none; background:#0a7cff; color:#fff; cursor:pointer; font-weight:700; }
+
+    .review-card { margin-bottom:12px; padding:12px; background:#fff; border-radius:8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+    .review-stars { color:#f8c200; }
+
+    @media (max-width:600px){ .gallery { gap:8px; grid-template-columns: repeat(2,1fr); } .lang-btn { position:static; margin:8px auto 0 auto; display:block; } }
+  </style>
 </head>
 <body>
   <header>
+    <button id="lang-toggle" class="lang-btn" aria-pressed="false">ES</button>
 
-    <button id="toggle-lang" class="lang-btn">Español</button>
+    <h1 id="header-title" data-i18n="headerTitle">Discover-SV-Travel</h1>
+    <p id="header-sub" data-i18n="headerSubtitle">More than tours — we share authentic Salvadoran stories and adventures</p>
 
-    <h1>Discover-SV-Travel</h1>
-
-    <p>More than tours — we share authentic Salvadoran stories and adventures</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-    
+    <nav>
+      <a id="nav-home" href="index.html" data-i18n="navHome">Home</a>
+      <a id="nav-about" href="about.html" data-i18n="navAbout">About</a>
+      <a id="nav-contact" href="contact.html" data-i18n="navContact">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <h2>Discover Your Next Adventure — Explore Our Exclusive Tours Across El Salvador</h2>
+    <h2 id="page-h2" data-i18n="pageH2">Discover Your Next Adventure — Explore Our Exclusive Tours Across El Salvador</h2>
 
-    <p>At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country’s breathtaking landscapes, rich history, and vibrant culture. Whether you’re seeking thrilling volcano hikes, relaxing beach escapes, or cultural explorations, our carefully curated small-group tours offer something unforgettable for every traveler. Let us guide you on your next adventure and help you create lasting memories.</p>
+    <p id="intro" data-i18n="intro">
+      At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country’s breathtaking landscapes, rich history, and vibrant culture.
+    </p>
 
-    <section class="tour-card">
-  <h3>Crater & Capital Culture Experience (Full-Day)</h3>
-  <div class="images">
-    <img src="Images/El_Boqueron.jpg" alt="El Boquerón Volcano Crater" />
-    <img src="Images/Centro_Historico.jpg" alt="Historic Downtown San Salvador" />
-  </div>
-  <p>
-    Explore the majestic El Boquerón volcano crater followed by a cultural journey through San Salvador’s historic downtown. Visit iconic landmarks including the Cathedral, National Palace, and colorful murals, finishing with an immersive experience at the National Library (BINAES). Transportation, guide, and refreshments are included for a full-day adventure combining nature and culture.
-  </p>
-
-  <p class="story">
-  <strong>Imagine standing at the edge of a crater formed thousands of years ago, then stepping into the city where murals and monuments tell stories of resilience and hope.</strong>
-</p>
-
-  
-  <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Crater%20%26%20Capital%20Culture%20Experience%20tour.">
-    <button class="book-btn">Book Now</button>
-  </a>
-</section>
-
-    <section class="tour-card">
-      <h3>El Tunco + Tamanique Waterfalls Adventure (Half to Full-Day)</h3>
+    <!-- ===== Tours ===== -->
+    <!-- For each tour, IDs are set so translation JS can update them -->
+    <section class="tour-card" id="tour-1">
+      <h3 id="title-1" data-i18n="title1">Crater & Capital Culture Experience (Full-Day)</h3>
       <div class="images">
-    <img src="Images/El_Tunco.jpg" alt="El Boquerón Volcano Crater" />
-    <img src="Images/Tamanique_Cascade.jpg" alt="Historic Downtown San Salvador" />
-  </div>
-      <p>
-        Start your day hiking through lush trails to reach the hidden waterfalls of Tamanique, where you can swim and even try cliff jumping. After cooling off, head to the surf town of El Tunco to enjoy local restaurants, artisan shops, and a spectacular Pacific sunset. A perfect mix of adventure and beach life in one tour.
-      </p>
-
-      <p class="story">
-  <strong>Climb hidden trails to discover emerald waterfalls, then end your day watching the sun melt into the Pacific at El Tunco’s iconic rock arch.</strong>
-</p>
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20El%20Tunco%20+%20Tamanique%20Waterfalls%20Adventure.">
-        <button class="book-btn">Book Now</button>
-      </a>
-    </section>
-
-    <section class="tour-card">
-      <h3>Ilamatepec Volcano Hike + Lago Coatepeque</h3>
-      <div class="images">
-    <img src="Images/Volcan_Ilamatepec.jpg" alt="El Boquerón Volcano Crater" />
-    <img src="Images/Volcan_Ilamatepec2.jpg" alt="View of Coatepeque Lake from the top of the volcano." />
-  </div>
-      <p>
-        Challenge yourself with a guided hike to the summit of Ilamatepec, El Salvador’s highest volcano. At the top, marvel at the vivid turquoise crater lake and sweeping mountain views. After the hike, relax at the panoramic Lake Coatepeque — take stunning photos, enjoy a lakeside lunch, or even rent a waverunner to make the most of your day.
-      </p>
-
-      <p class="story">
-  <strong>They call it the sleeping giant — crowned by a turquoise crater lake that leaves even locals breathless. At the bottom, Lake Coatepeque sparkles like a jewel.</strong>
-</p>
-
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Ilamatepec%20Volcano%20Hike.">
-        <button class="book-btn">Book Now</button>
-      </a>
-    </section>
-
-    <section class="tour-card">
-      <h3>Suchitoto Cultural Experience</h3>
-      <div class="images">
-    <img src="Images/Suchitoto_Church.jpg" alt="Colonial Church in the main town" />
-    <img src="Images/Suchitoto_Colonial_Town.jpg" alt="View of Suchitoto Colonial Town." />
-  </div>
-      <p>
-        Discover the colonial charm of Suchitoto with its cobbled streets, art galleries, and historic churches. Visit beautiful Lake Suchitlán and learn about the region’s indigo dye tradition through an interactive workshop or artisan demo. A relaxing day full of history, culture, and local flavors.
-      </p>
-
-      <p class="story">
-  <strong>Cobblestone streets, whitewashed churches, and stories painted in indigo — Suchitoto feels frozen in time, yet alive with local art and tradition.</strong>
-</p>
-
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Suchitoto%20Cultural%20Experience.">
-        <button class="book-btn">Book Now</button>
-      </a>
-    </section>
-
-    <section class="tour-card">
-      <h3>Ruta de las Flores Coffee & Culture Day</h3>
-      <div class="images">
-    <img src="Images/Cafe_Albania_Bike_Zipline.jpg" alt="Ziplining across Cafe Albania" />
-    <img src="Images/Cafe_Albania.jpg" alt="View of Cafe Albania colorful slide." />
-  </div>
-      <p>
-        Travel along the scenic Ruta de las Flores, renowned for its colorful colonial towns, vibrant murals, and lush coffee farms. Visit the Juayúa food festival, explore Ataco’s artisan markets and street art, and experience the thrill of Café Albania with its famous giant maze and swing. Wrap up your journey with a guided tour of a local coffee plantation — perfect for foodies, coffee lovers, and cultural explorers alike.
-      </p>
-
-      <p class="story">
-  <strong>Through winding mountain roads, vibrant murals, and rich coffee aromas — discover why this route is loved by artists, foodies, and dreamers alike.</strong>
-</p>
-
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Ruta%20de%20las%20Flores%20tour.">
-        <button class="book-btn">Book Now</button>
-      </a>
-    </section>
-
-    <section class="tour-card">
-      <h3>El Pital Highland Escape</h3>
-      <div class="images">
-        <img src="Images/El_Pital.jpg" alt="View of the highest point in El Salvador from El Pital" />
-        <img src="Images/El_Pital2.jpg" alt="View of the nature trail from El Pital" />
+        <img src="Images/El_Boqueron.jpg" alt="El Boquerón Volcano Crater" />
       </div>
-      <p>
-        Journey to El Salvador’s highest point and explore the misty cloud forest of El Pital. Enjoy cool mountain air, breathtaking views, and a relaxing nature walk.
-      </p>
+      <p id="desc-1" data-i18n="desc1">Explore the majestic El Boquerón volcano crater followed by a cultural journey through San Salvador’s historic downtown.</p>
+      <p class="story" id="story-1"><strong data-i18n="story1">Imagine standing at the edge of a crater...</strong></p>
 
-      <p class="story">
-  <strong>In the misty highlands, ancient pines whisper secrets, and the cool air feels like stepping into another world far from the tropical coast.</strong>
-</p>
+      <div class="meta">
+        <a id="link-1" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Crater%20%26%20Capital%20Culture%20Experience%20tour.">
+          <button class="book-btn" id="book-btn-1" data-i18n="bookNow">Book Now</button>
+        </a>
 
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20El%20Pital%20Highland%20Escape.">
-        <button class="book-btn">Book Now</button>
-      </a>
-    </section>
-
-    <section class="tour-card">
-      <h3>Los Cóbanos Snorkeling Experience</h3>
-      <div class="images">
-        <img src="Images/Los_Cobanos_Reef.jpg" alt="View of a sea turtle from the reefs" />
-        <img src="Images/Los_Cobanos_Rockreef.jpg" alt="View of Los Cobanos Rockreef" />
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-1" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-1" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
       </div>
-      <p>
-        Dive into adventure at Los Cóbanos, home to one of El Salvador’s most beautiful coral reefs. Discover vibrant marine life on a guided snorkeling tour, then unwind on the peaceful beach. All equipment is provided — making this the perfect experience for both beginners and seasoned snorkelers.
-      </p>
-
-      <p class="story">
-  <strong>Beneath gentle waves, coral gardens hide sea turtles and bright fish — while fishermen share tales of shipwrecks and treasures still unseen.</strong>
-</p>
-
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Los%20Cóbanos%20Snorkeling%20Experience.">
-        <button class="book-btn">Book Now</button>
-      </a>
     </section>
 
-    <section class="tour-card">
-      <h3>Mayan Ruins Combo: Tazumal + Joya de Cerén</h3>
+    <!-- Repeat other tours (IDs consistent) -->
+    <section class="tour-card" id="tour-2">
+      <h3 id="title-2" data-i18n="title2">El Tunco + Tamanique Waterfalls Adventure (Half to Full-Day)</h3>
       <div class="images">
-        <img src="Images/El_Tazumal2.jpg" alt="View of El Tazumal Mayan Ruins" />
-        <img src="Images/Joya_de_Ceren.jpg" alt="View of Joya de Ceren Mayan Ruins" />
+        <img src="Images/El_Tunco.jpg" alt="El Tunco" />
       </div>
-      <p>
-        Step back in time on this tour of El Salvador’s top archaeological sites. Explore the impressive ruins of Tazumal in Chalchuapa and visit the UNESCO World Heritage site of Joya de Cerén, known as the “Pompeii of the Americas” for its perfectly preserved ancient village.
-      </p>
+      <p id="desc-2" data-i18n="desc2">Start your day hiking through lush trails to reach the hidden waterfalls of Tamanique...</p>
+      <p class="story" id="story-2"><strong data-i18n="story2">Climb hidden trails to discover emerald waterfalls...</strong></p>
 
-      <p class="story">
-  <strong>Walk among ancient pyramids and preserved villages, and feel the echoes of ceremonies and daily life from over a thousand years ago.</strong>
-</p>
+      <div class="meta">
+        <a id="link-2" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20El%20Tunco%20%2B%20Tamanique%20Waterfalls%20Adventure.">
+          <button class="book-btn" id="book-btn-2" data-i18n="bookNow">Book Now</button>
+        </a>
 
-
-      <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Mayan%20Ruins%20Combo%20tour.">
-        <button class="book-btn">Book Now</button>
-      </a>
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-2" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-2" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
     </section>
+
+    <!-- Tour 3 -->
+    <section class="tour-card" id="tour-3">
+      <h3 id="title-3" data-i18n="title3">Ilamatepec Volcano Hike + Lago Coatepeque</h3>
+      <div class="images">
+        <img src="Images/Volcan_Ilamatepec.jpg" alt="Ilamatepec Volcano" />
+      </div>
+      <p id="desc-3" data-i18n="desc3">Challenge yourself with a guided hike to the summit of Ilamatepec...</p>
+      <p class="story" id="story-3"><strong data-i18n="story3">They call it the sleeping giant — crowned by a turquoise crater lake...</strong></p>
+
+      <div class="meta">
+        <a id="link-3" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Ilamatepec%20Volcano%20Hike.">
+          <button class="book-btn" id="book-btn-3" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-3" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-3" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour 4 -->
+    <section class="tour-card" id="tour-4">
+      <h3 id="title-4" data-i18n="title4">Suchitoto Cultural Experience</h3>
+      <div class="images">
+        <img src="Images/Suchitoto_Church.jpg" alt="Suchitoto Church" />
+      </div>
+      <p id="desc-4" data-i18n="desc4">Discover the colonial charm of Suchitoto with its cobbled streets...</p>
+      <p class="story" id="story-4"><strong data-i18n="story4">Cobblestone streets, whitewashed churches, and stories painted in indigo...</strong></p>
+
+      <div class="meta">
+        <a id="link-4" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Suchitoto%20Cultural%20Experience.">
+          <button class="book-btn" id="book-btn-4" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-4" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-4" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour 5 -->
+    <section class="tour-card" id="tour-5">
+      <h3 id="title-5" data-i18n="title5">Ruta de las Flowers Coffee & Culture Day</h3>
+      <div class="images">
+        <img src="Images/Cafe_Albania.jpg" alt="Cafe Albania" />
+      </div>
+      <p id="desc-5" data-i18n="desc5">Travel along the scenic Ruta de las Flores, renowned for its colorful colonial towns...</p>
+      <p class="story" id="story-5"><strong data-i18n="story5">Through winding mountain roads, vibrant murals, and rich coffee aromas...</strong></p>
+
+      <div class="meta">
+        <a id="link-5" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Ruta%20de%20las%20Flores%20tour.">
+          <button class="book-btn" id="book-btn-5" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-5" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-5" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour 6 -->
+    <section class="tour-card" id="tour-6">
+      <h3 id="title-6" data-i18n="title6">El Pital Highland Escape</h3>
+      <div class="images">
+        <img src="Images/El_Pital.jpg" alt="El Pital" />
+      </div>
+      <p id="desc-6" data-i18n="desc6">Journey to El Salvador’s highest point and explore the misty cloud forest of El Pital.</p>
+      <p class="story" id="story-6"><strong data-i18n="story6">In the misty highlands, ancient pines whisper secrets...</strong></p>
+
+      <div class="meta">
+        <a id="link-6" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20El%20Pital%20Highland%20Escape.">
+          <button class="book-btn" id="book-btn-6" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-6" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-6" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour 7 -->
+    <section class="tour-card" id="tour-7">
+      <h3 id="title-7" data-i18n="title7">Los Cóbanos Snorkeling Experience</h3>
+      <div class="images">
+        <img src="Images/Los_Cobanos_Reef.jpg" alt="Los Cobanos reef" />
+      </div>
+      <p id="desc-7" data-i18n="desc7">Dive into adventure at Los Cóbanos, home to one of El Salvador’s most beautiful coral reefs.</p>
+      <p class="story" id="story-7"><strong data-i18n="story7">Beneath gentle waves, coral gardens hide sea turtles and bright fish...</strong></p>
+
+      <div class="meta">
+        <a id="link-7" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Los%20C%F3banos%20Snorkeling%20Experience.">
+          <button class="book-btn" id="book-btn-7" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-7" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-7" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour 8 -->
+    <section class="tour-card" id="tour-8">
+      <h3 id="title-8" data-i18n="title8">Mayan Ruins Combo: Tazumal + Joya de Cerén</h3>
+      <div class="images">
+        <img src="Images/El_Tazumal2.jpg" alt="Tazumal" />
+      </div>
+      <p id="desc-8" data-i18n="desc8">Step back in time on this tour of El Salvador’s top archaeological sites.</p>
+      <p class="story" id="story-8"><strong data-i18n="story8">Walk among ancient pyramids and preserved villages...</strong></p>
+
+      <div class="meta">
+        <a id="link-8" href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Mayan%20Ruins%20Combo%20tour.">
+          <button class="book-btn" id="book-btn-8" data-i18n="bookNow">Book Now</button>
+        </a>
+
+        <div class="price-badge" data-price="50">
+          <span class="price-amount" id="price-8" data-price-template="$50 per person">$50 per person</span>
+          <span class="price-compare" id="price-compare-8" data-i18n="priceCompare">Compared to $65 on other sites</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery Section ===== -->
+    <section id="gallery-section" style="margin:38px auto;padding:0 16px;">
+      <h2 id="gallery-title" data-i18n="galleryTitle">Gallery</h2>
+      <p id="gallery-sub" data-i18n="gallerySub">Photos & videos from our tours — click to enlarge</p>
+
+      <div class="gallery" id="gallery-grid" aria-label="Gallery">
+        <div class="gallery-item" data-type="image" data-src="Images/El_Boqueron.jpg" tabindex="0">
+          <img src="Images/El_Boqueron.jpg" alt="El Boquerón" />
+          <div class="caption" id="cap-1" data-i18n="cap1">El Boquerón</div>
+        </div>
+
+        <div class="gallery-item" data-type="image" data-src="Images/El_Tunco.jpg" tabindex="0">
+          <img src="Images/El_Tunco.jpg" alt="El Tunco" />
+          <div class="caption" id="cap-2" data-i18n="cap2">El Tunco</div>
+        </div>
+
+        <div class="gallery-item" data-type="image" data-src="Images/Volcan_Ilamatepec.jpg" tabindex="0">
+          <img src="Images/Volcan_Ilamatepec.jpg" alt="Ilamatepec" />
+          <div class="caption" id="cap-3" data-i18n="cap3">Ilamatepec</div>
+        </div>
+
+        <div class="gallery-item" data-type="image" data-src="Images/Los_Cobanos_Reef.jpg" tabindex="0">
+          <img src="Images/Los_Cobanos_Reef.jpg" alt="Los Cobanos" />
+          <div class="caption" id="cap-4" data-i18n="cap4">Los Cóbanos</div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- Reviews -->
+  <section id="reviews-section" style="max-width:900px;margin:30px auto;padding:0 16px;">
+    <h2 id="reviews-title" data-i18n="reviewsTitle">Traveler Reviews</h2>
+
+    <div id="review-list" aria-live="polite"></div>
+
+    <h3 id="leave-review-title" data-i18n="leaveReview">Leave a Review</h3>
+    <form id="review-form" style="max-width:650px;">
+      <label for="name" id="label-name" data-i18n="labelName">Your Name:</label><br>
+      <input type="text" id="name" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0" />
+
+      <label for="rating" id="label-rating" data-i18n="labelRating">Rating:</label><br>
+      <select id="rating" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0">
+        <option value="" id="select-rating-placeholder" data-i18n="selectRatingPlaceholder">Select rating</option>
+        <option value="5">★★★★★ (5)</option>
+        <option value="4">★★★★☆ (4)</option>
+        <option value="3">★★★☆☆ (3)</option>
+        <option value="2">★★☆☆☆ (2)</option>
+        <option value="1">★☆☆☆☆ (1)</option>
+      </select>
+
+      <label for="review" id="label-review" data-i18n="labelReview">Your Review:</label><br>
+      <textarea id="review" rows="4" required style="width:100%;padding:10px;border-radius:8px;margin:6px 0"></textarea>
+
+      <button type="submit" class="book-btn" id="submit-review-btn" data-i18n="submitReview">Submit Review</button>
+    </form>
+  </section>
+
+  <footer style="text-align:center;padding:20px 0;">
+    <p id="footer-text" data-i18n="footer">© 2025 DiscoverSVTravel</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <div class="lightbox-content" id="lightboxContent">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <div id="lightboxInner"></div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK (CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
   <script>
-  const translations = {
-    es: {
-      headerTitle: "Descubre El Salvador con Nosotros",
-      headerSubtitle: "Tours auténticos, aventuras y cultura local",
-
-      craterTourTitle: "Experiencia Cráter y Centro Histórico",
-      craterTourDesc: "Explora el majestuoso volcán El Boquerón, recorre el centro histórico de San Salvador incluyendo la Catedral y el Palacio Nacional, y visita la moderna Biblioteca Nacional BINAES. Incluye transporte, guía y agua embotellada.",
-
-      tuncoTourTitle: "El Tunco + Cascadas de Tamanique",
-      tuncoTourDesc: "Empieza el día con una caminata por senderos hasta llegar a las cascadas escondidas de Tamanique, donde puedes nadar o hacer saltos de acantilado. Luego relájate en el pueblo surfista El Tunco y disfruta de un atardecer inolvidable.",
-
-      ilamatepecTourTitle: "Ascenso al Volcán Ilamatepec",
-      ilamatepecTourDesc: "Desafíate con una caminata guiada hasta la cima del volcán más alto de El Salvador. Desde el cráter, contempla la impresionante laguna turquesa y paisajes montañosos. Finaliza en el Lago de Coatepeque para fotos panorámicas y relax.",
-
-      suchitotoTourTitle: "Experiencia Cultural en Suchitoto",
-      suchitotoTourDesc: "Descubre el encanto colonial de Suchitoto con sus calles empedradas, visita el Lago Suchitlán y disfruta de talleres de añil o galerías de arte locales. Ideal para amantes de la historia y la cultura salvadoreña.",
-
-      floresTourTitle: "Ruta de las Flores: Café y Cultura",
-      floresTourDesc: "Viaja por la pintoresca Ruta de las Flores, famosa por sus pueblos coloridos y cafetales. Visita el festival gastronómico de Juayúa, explora el arte callejero de Ataco y disfruta de la aventura en Café Albania.",
-
-      pitalTourTitle: "Escapada a las Alturas de El Pital",
-      pitalTourDesc: "Disfruta de un recorrido panorámico hasta el punto más alto de El Salvador. Camina por el bosque nuboso, respira aire fresco y admira vistas espectaculares. Opcional: picnic o experiencia de campamento.",
-
-      cobanosTourTitle: "Experiencia de Snorkel en Los Cóbanos",
-      cobanosTourDesc: "Sumérgete en la aventura en Los Cóbanos, hogar de uno de los arrecifes de coral más bellos del país. Descubre vida marina vibrante con guía especializado y relájate en la playa después del snorkel.",
-
-      mayanTourTitle: "Ruta Maya: Tazumal y Joya de Cerén",
-      mayanTourDesc: "Viaja al pasado visitando las ruinas mayas de Tazumal y el sitio arqueológico Joya de Cerén, Patrimonio Mundial UNESCO. Una experiencia imperdible para los amantes de la historia antigua.",
-
-      bookNow: "Reservar Ahora",
-      seeInEnglish: "See in English"
-    },
+  /* ===========================
+     Single clean translation object
+     Keys correspond to data-i18n attributes or element IDs used below
+     =========================== */
+  const TRANSLATIONS = {
     en: {
-      headerTitle: "Discover El Salvador with Us",
-      headerSubtitle: "Authentic tours, adventures, and local culture",
-
-      craterTourTitle: "Crater & Capital Culture Experience",
-      craterTourDesc: "Explore the impressive El Boquerón volcano, discover San Salvador's historic center, and visit the new BINAES National Library. Includes transportation, guide, and bottled water.",
-
-      tuncoTourTitle: "El Tunco + Tamanique Waterfalls Adventure",
-      tuncoTourDesc: "Start your day hiking to the hidden Tamanique waterfalls, then relax in the surf town of El Tunco, enjoying local food and a stunning Pacific sunset.",
-
-      ilamatepecTourTitle: "Ilamatepec Volcano Hike",
-      ilamatepecTourDesc: "Challenge yourself with a guided hike to the top of Ilamatepec, El Salvador’s highest volcano. At the summit, take in breathtaking views of the vivid turquoise crater lake and surrounding mountains. After the hike, stop at Lake Coatepeque for stunning photos and relaxation.",
-
-      suchitotoTourTitle: "Suchitoto Cultural Experience",
-      suchitotoTourDesc: "Discover the colonial charm of Suchitoto with its cobbled streets, visit Lake Suchitlán, and enjoy indigo workshops or local art galleries. Ideal for history and culture lovers.",
-
-      floresTourTitle: "Ruta de las Flores: Coffee & Culture Day",
-      floresTourDesc: "Travel along the picturesque Ruta de las Flores, famous for its colorful towns and coffee farms. Visit the Juayúa food festival, explore Ataco’s vibrant street art, and enjoy adventure at Café Albania.",
-
-      pitalTourTitle: "El Pital Highland Escape",
-      pitalTourDesc: "Enjoy a scenic drive to El Salvador’s highest point. Walk through the cloud forest, breathe fresh air, and take in spectacular views. Optional: picnic or camping experience.",
-
-      cobanosTourTitle: "Los Cóbanos Snorkeling Experience",
-      cobanosTourDesc: "Dive into adventure at Los Cóbanos, home to one of El Salvador’s most beautiful coral reefs. Discover vibrant marine life with a specialized guide, then relax on the beach afterward.",
-
-      mayanTourTitle: "Mayan Ruins Combo: Tazumal + Joya de Cerén",
-      mayanTourDesc: "Travel back in time visiting the Mayan ruins of Tazumal and the UNESCO World Heritage site of Joya de Cerén. A must-see for ancient history lovers.",
-
+      metaTitle: "Discover-SV-Travel",
+      headerTitle: "Discover-SV-Travel",
+      headerSubtitle: "More than tours — we share authentic Salvadoran stories and adventures",
+      navHome: "Home", navAbout: "About", navContact: "Contact",
+      pageH2: "Discover Your Next Adventure — Explore Our Exclusive Tours Across El Salvador",
+      intro: "At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country’s breathtaking landscapes, rich history, and vibrant culture.",
+      // tours (titles, descriptions and stories)
+      title1: "Crater & Capital Culture Experience (Full-Day)",
+      desc1: "Explore the majestic El Boquerón volcano crater followed by a cultural journey through San Salvador’s historic downtown. Transportation, guide, and refreshments included.",
+      story1: "Imagine standing at the edge of a crater formed thousands of years ago, then stepping into the city where murals and monuments tell stories of resilience and hope.",
+      title2: "El Tunco + Tamanique Waterfalls Adventure (Half to Full-Day)",
+      desc2: "Start your day hiking through lush trails to reach the hidden waterfalls of Tamanique, and finish with the surf town of El Tunco and a Pacific sunset.",
+      story2: "Climb hidden trails to discover emerald waterfalls, then end your day watching the sun melt into the Pacific at El Tunco’s iconic rock arch.",
+      title3: "Ilamatepec Volcano Hike + Lago Coatepeque",
+      desc3: "Guided hike to the summit of Ilamatepec with panoramic views and a relaxing stop at Lake Coatepeque.",
+      story3: "They call it the sleeping giant — crowned by a turquoise crater lake that leaves even locals breathless.",
+      title4: "Suchitoto Cultural Experience",
+      desc4: "Discover the colonial charm of Suchitoto, its galleries, lakeside views, and artisan workshops.",
+      story4: "Cobblestone streets, whitewashed churches, and stories painted in indigo — Suchitoto feels frozen in time.",
+      title5: "Ruta de las Flores Coffee & Culture Day",
+      desc5: "Travel through colorful towns, sample local cuisine at Juayúa, and visit coffee farms on the Ruta de las Flores.",
+      story5: "Through winding mountain roads, vibrant murals, and rich coffee aromas — discover why this route is loved by artists and foodies.",
+      title6: "El Pital Highland Escape",
+      desc6: "Journey to El Pital, enjoy the cool cloud forest and panoramic viewpoints.",
+      story6: "In the misty highlands, ancient pines whisper secrets and the cool air feels like another world.",
+      title7: "Los Cóbanos Snorkeling Experience",
+      desc7: "Explore the reef at Los Cóbanos on a guided snorkeling tour suitable for all levels.",
+      story7: "Beneath gentle waves, coral gardens hide sea turtles and bright fish.",
+      title8: "Mayan Ruins Combo: Tazumal + Joya de Cerén",
+      desc8: "Visit Tazumal and the UNESCO site Joya de Cerén, and walk through well-preserved archaeological remains.",
+      story8: "Walk among ancient pyramids and preserved villages and feel echoes of daily life from a thousand years ago.",
+      galleryTitle: "Gallery",
+      gallerySub: "Photos & videos from our tours — click to enlarge",
+      cap1: "El Boquerón", cap2: "El Tunco", cap3: "Ilamatepec", cap4: "Los Cóbanos",
+      reviewsTitle: "Traveler Reviews",
+      leaveReview: "Leave a Review",
+      labelName: "Your Name:",
+      labelRating: "Rating:",
+      labelReview: "Your Review:",
+      selectRatingPlaceholder: "Select rating",
+      submitReview: "Submit Review",
       bookNow: "Book Now",
-      seeInSpanish: "Ver en Español"
+      priceCompare: "Compared to $65 on other sites",
+      footer: "© 2025 DiscoverSVTravel"
+    },
+    es: {
+      metaTitle: "Discover-SV-Travel",
+      headerTitle: "Discover-SV-Travel",
+      headerSubtitle: "Más que tours — compartimos historias y aventuras auténticas de El Salvador",
+      navHome: "Inicio", navAbout: "Acerca", navContact: "Contacto",
+      pageH2: "Descubre tu próxima aventura — Explora nuestros tours exclusivos por El Salvador",
+      intro: "En Discover-SV-Travel creemos que la mejor manera de experimentar El Salvador es con tours auténticos e inmersivos que muestran sus paisajes, historia y cultura.",
+      // tours (spanish)
+      title1: "Experiencia Cráter y Centro Histórico (Día Completo)",
+      desc1: "Explora el majestuoso cráter del volcán El Boquerón seguido de un recorrido por el centro histórico de San Salvador. Transporte, guía y refrigerios incluidos.",
+      story1: "Imagina estar al borde de un cráter formado hace miles de años, y luego entrar a la ciudad donde murales y monumentos cuentan historias de resiliencia y esperanza.",
+      title2: "El Tunco + Cascadas de Tamanique (Medio a Día Completo)",
+      desc2: "Camina por senderos hasta las cascadas de Tamanique y termina en El Tunco para disfrutar del atardecer en el Pacífico.",
+      story2: "Sube por senderos escondidos para descubrir cascadas color esmeralda y termina viendo el sol fundirse en el Pacífico.",
+      title3: "Ascenso al Volcán Ilamatepec + Lago Coatepeque",
+      desc3: "Caminata guiada hasta la cima del Ilamatepec y una parada para relajarte en el Lago Coatepeque.",
+      story3: "Le llaman el gigante dormido — coronado por una laguna turquesa que deja sin aliento.",
+      title4: "Experiencia Cultural en Suchitoto",
+      desc4: "Descubre el encanto colonial de Suchitoto, sus galerías, vistas al lago y talleres de artesanía.",
+      story4: "Calles empedradas, iglesias encaladas e historias pintadas en añil — Suchitoto parece detenido en el tiempo.",
+      title5: "Ruta de las Flores: Café y Cultura",
+      desc5: "Recorre pueblos coloridos, prueba la comida local en Juayúa y visita fincas de café en la Ruta de las Flores.",
+      story5: "Por carreteras montañosas, murales vibrantes y aromas de café — descubre por qué esta ruta es amada por artistas y gastrónomos.",
+      title6: "Escapada a El Pital",
+      desc6: "Viaja a El Pital y disfruta del bosque nuboso y vistas panorámicas.",
+      story6: "En las alturas nubladas, los pinos susurran secretos y el aire fresco se siente como entrar a otro mundo.",
+      title7: "Experiencia de Snorkel en Los Cóbanos",
+      desc7: "Explora el arrecife en Los Cóbanos con un tour de snorkel guiado, apto para todos los niveles.",
+      story7: "Bajo olas suaves, jardines de coral esconden tortugas marinas y peces de colores.",
+      title8: "Ruta Maya: Tazumal + Joya de Cerén",
+      desc8: "Visita Tazumal y el sitio Patrimonio de la UNESCO Joya de Cerén, y camina entre restos arqueológicos muy bien preservados.",
+      story8: "Camina entre antiguas pirámides y aldeas preservadas y siente los ecos de la vida cotidiana de hace más de mil años.",
+      galleryTitle: "Galería",
+      gallerySub: "Fotos y videos de nuestros tours — haz clic para ampliar",
+      cap1: "El Boquerón", cap2: "El Tunco", cap3: "Ilamatepec", cap4: "Los Cóbanos",
+      reviewsTitle: "Reseñas de Viajeros",
+      leaveReview: "Deja una Reseña",
+      labelName: "Tu Nombre:",
+      labelRating: "Calificación:",
+      labelReview: "Tu Reseña:",
+      selectRatingPlaceholder: "Selecciona calificación",
+      submitReview: "Enviar Reseña",
+      bookNow: "Reservar Ahora",
+      priceCompare: "$50 — comparado con $65 en otros sitios",
+      footer: "© 2025 DiscoverSVTravel"
     }
   };
 
-  let currentLang = 'en';
+  // language state
+  let currentLang = localStorage.getItem('lang') || 'en';
 
-  document.getElementById('toggle-lang').addEventListener('click', () => {
+  // helper: set text for elements with data-i18n or fallback by id
+  function applyTranslations(lang) {
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+
+    // Set simple data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key && dict[key] !== undefined) {
+        // For placeholders or title tags, set accordingly
+        if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+          el.placeholder = dict[key];
+        } else if (el.tagName.toLowerCase() === 'title') {
+          el.textContent = dict[key];
+        } else {
+          el.textContent = dict[key];
+        }
+      }
+    });
+
+    // Specific: update any price-amounts from their template and ensure "per person" translated
+    const priceElems = document.querySelectorAll('[data-price-template]');
+    priceElems.forEach(pe => {
+      // base price value stored as dataset or price-badge attribute
+      const parent = pe.closest('.price-badge');
+      const priceNum = parent ? parent.getAttribute('data-price') : null;
+      let baseText = pe.getAttribute('data-price-template') || "$50 per person";
+      // Translate "per person"
+      if (lang === 'es') {
+        // convert "$50 per person" => "$50 por persona"
+        const parts = baseText.split(' per ');
+        pe.textContent = (priceNum ? ('$' + priceNum) : parts[0]) + ' por persona';
+      } else {
+        const parts = baseText.split(' per ');
+        pe.textContent = (priceNum ? ('$' + priceNum) : parts[0]) + ' per person';
+      }
+    });
+
+    // Ensure price compare text uses translation string
+    document.querySelectorAll('[data-i18n="priceCompare"]').forEach(el => {
+      el.textContent = dict.priceCompare || '';
+    });
+
+    // Update booking button texts and dynamic tour fields where necessary
+    // (book buttons already have data-i18n="bookNow")
+    // Update footer and meta title
+    if (dict.footer) {
+      const f = document.getElementById('footer-text');
+      if (f) f.textContent = dict.footer;
+    }
+    // Update document <title>
+    if (dict.metaTitle) document.title = dict.metaTitle;
+
+    // Update lang toggle label
+    const toggle = document.getElementById('lang-toggle');
+    if (toggle) {
+      toggle.textContent = (lang === 'en') ? 'ES' : 'EN';
+      toggle.setAttribute('aria-pressed', String(lang !== 'en'));
+    }
+  }
+
+  // initial apply
+  applyTranslations(currentLang);
+
+  // toggle handler
+  document.getElementById('lang-toggle').addEventListener('click', () => {
     currentLang = (currentLang === 'en') ? 'es' : 'en';
-
-    // Header
-    document.querySelector('header h1').textContent = translations[currentLang].headerTitle;
-    document.querySelector('header p').textContent = translations[currentLang].headerSubtitle;
-
-    // Tour cards titles and descriptions
-    const titles = [
-      'craterTourTitle', 'tuncoTourTitle', 'ilamatepecTourTitle', 'suchitotoTourTitle',
-      'floresTourTitle', 'pitalTourTitle', 'cobanosTourTitle', 'mayanTourTitle'
-    ];
-    const descs = [
-      'craterTourDesc', 'tuncoTourDesc', 'ilamatepecTourDesc', 'suchitotoTourDesc',
-      'floresTourDesc', 'pitalTourDesc', 'cobanosTourDesc', 'mayanTourDesc'
-    ];
-
-    document.querySelectorAll('.tour-card h3').forEach((el, idx) => {
-      el.textContent = translations[currentLang][titles[idx]];
-    });
-    document.querySelectorAll('.tour-card p').forEach((el, idx) => {
-      el.textContent = translations[currentLang][descs[idx]];
-    });
-
-    // Book buttons
-    document.querySelectorAll('.book-btn').forEach(btn => {
-      btn.textContent = translations[currentLang].bookNow;
-    });
-
-    // Toggle button text
-    document.getElementById('toggle-lang').textContent =
-      (currentLang === 'en') ? translations.en.seeInSpanish : translations.es.seeInEnglish;
+    localStorage.setItem('lang', currentLang);
+    applyTranslations(currentLang);
   });
-</script>
 
+  /* ==============================
+     Lightbox Gallery Script
+     ============================== */
+  (function() {
+    const galleryGrid = document.getElementById('gallery-grid');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxInner = document.getElementById('lightboxInner');
+    const lightboxClose = document.getElementById('lightboxClose');
 
-  <footer>
-    <p>© 2025 DiscoverSVTravel</p>
-  </footer>
+    function openLightbox(type, src, alt) {
+      lightboxInner.innerHTML = '';
+      if (type === 'video') {
+        const v = document.createElement('video');
+        v.src = src;
+        v.controls = true;
+        v.autoplay = true;
+        lightboxInner.appendChild(v);
+      } else {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = alt || '';
+        lightboxInner.appendChild(img);
+      }
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxInner.innerHTML = '';
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    galleryGrid && galleryGrid.addEventListener('click', (e) => {
+      const item = e.target.closest('.gallery-item');
+      if (!item) return;
+      const type = item.getAttribute('data-type') || 'image';
+      const src = item.getAttribute('data-src') || (item.querySelector('img') && item.querySelector('img').src);
+      const alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+      openLightbox(type, src, alt);
+    });
+
+    galleryGrid && galleryGrid.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const item = e.target.closest('.gallery-item');
+        if (!item) return;
+        const type = item.getAttribute('data-type') || 'image';
+        const src = item.getAttribute('data-src') || (item.querySelector('img') && item.querySelector('img').src);
+        const alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+        openLightbox(type, src, alt);
+      }
+    });
+
+    lightboxClose && lightboxClose.addEventListener('click', closeLightbox);
+    lightbox && lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  })();
+
+  /* ==============================
+     Firebase Reviews (Firestore)
+     - keep original logic, but be careful about unique var names
+     ============================== */
+  (function() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6aA1pu1gIcyzOwWtECtscKLRpJkk0Quc",
+      authDomain: "discoversvtravel-reviews.firebaseapp.com",
+      projectId: "discoversvtravel-reviews",
+      storageBucket: "discoversvtravel-reviews.firebasestorage.app",
+      messagingSenderId: "714013301252",
+      appId: "1:714013301252:web:a2d67fcf3a3c59570b7351",
+      measurementId: "G-ZD8FQ1D492"
+    };
+
+    // Initialize Firebase app and Firestore
+    try {
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      // helper to escape HTML
+      function escapeHtml(text) {
+        if (!text && text !== 0) return "";
+        return String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+      }
+
+      // load reviews and listen to updates
+      function loadReviews() {
+        const reviewList = document.getElementById('review-list');
+        if (!reviewList) return;
+        db.collection('reviews').orderBy('timestamp','desc').onSnapshot(snapshot => {
+          reviewList.innerHTML = '';
+          snapshot.forEach(doc => {
+            const r = doc.data();
+            const ts = r.timestamp && (typeof r.timestamp === 'number' ? new Date(r.timestamp) : (r.timestamp.toDate ? r.timestamp.toDate() : new Date(r.timestamp)));
+            const dateStr = ts ? ts.toLocaleDateString() : '';
+            const safeName = escapeHtml(r.name);
+            const safeReview = escapeHtml(r.review || r.text || '');
+            const rating = Math.max(0, Math.min(5, r.rating || 0));
+            const stars = "★".repeat(rating) + "☆".repeat(5-rating);
+
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+              <div class="review-name">${safeName}</div>
+              <div class="review-date">${dateStr}</div>
+              <div class="review-stars">${stars}</div>
+              <p class="review-text">${safeReview}</p>
+            `;
+            reviewList.appendChild(card);
+          });
+        }, err => {
+          console.warn('Error loading reviews:', err);
+        });
+      }
+
+      // submit handler
+      const reviewForm = document.getElementById('review-form');
+      reviewForm && reviewForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const rating = parseInt(document.getElementById('rating').value);
+        const review = document.getElementById('review').value.trim();
+
+        if (!name || !rating || !review) {
+          alert(currentLang === 'es' ? 'Por favor completa todos los campos antes de enviar.' : 'Please complete all fields before submitting.');
+          return;
+        }
+
+        try {
+          await db.collection('reviews').add({
+            name, rating, review, timestamp: Date.now()
+          });
+          reviewForm.reset();
+          alert(currentLang === 'es' ? 'Gracias — tu reseña fue enviada!' : 'Thank you — your review was submitted!');
+        } catch (err) {
+          console.error('Error submitting review:', err);
+          alert(currentLang === 'es' ? 'Error al enviar reseña. Intenta de nuevo.' : 'Error submitting review. Please try again.');
+        }
+      });
+
+      // start listening
+      loadReviews();
+
+    } catch (err) {
+      console.warn('Firebase init error (check credentials or network):', err);
+    }
+  })();
+  </script>
 </body>
 </html>
