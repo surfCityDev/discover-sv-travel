@@ -1,46 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Discover SV Travel</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About – Discover-SV-Travel</title>
+
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* About page layout */
+    .about-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    .about-photo {
+      flex: 0 0 260px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .about-text {
+      flex: 1;
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .about-text h3 {
+      margin-top: 0;
+      color: #8B2E2E;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    section {
+      margin-top: 35px;
+    }
+
+    @media (max-width: 750px) {
+      .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-photo {
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <h1>About Discover SV Travel</h1>
-    <p>More than tours — we share authentic Salvadoran stories and adventures</p>
+    <button id="lang-toggle" class="lang-btn">ES</button>
+
+    <h1 id="header-title">Discover-SV-Travel</h1>
+    <p id="header-sub">More than tours — we share authentic Salvadoran stories and adventures</p>
+
+    <nav>
+      <a id="nav-home" href="index.html">Home</a>
+      <a id="nav-about" href="about.html">About</a>
+      <a id="nav-contact" href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main>
+    <h2 id="about-title" style="text-align:center; margin-top:30px;">About Us</h2>
+
+    <!-- ===============================
+         ABOUT SECTION WITH PHOTO
+         =============================== -->
+    <div class="about-wrapper">
+
+      <!-- YOUR PHOTO -->
+      <div class="about-photo">
+        <img src="Images/byron_profile.jpg" alt="Byron Rogel - Discover SV Travel" />
+      </div>
+
+      <!-- ORIGINAL TEXT (fully preserved) -->
+      <div class="about-text">
+        <h3 id="about-subtitle">Who We Are</h3>
+
+        <p id="about-description">
+          Discover-SV-Travel is led by Byron Rogel, a proud Salvadoran passionate about sharing the natural
+          beauty, rich culture, and local secrets of El Salvador with travelers from around the world.
+          Based in Surf City, La Libertad, we offer small-group, authentic tours designed to help visitors
+          truly connect with our country beyond the typical tourist routes.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===============================
+         MISSION
+    =============================== -->
     <section>
-      <h2>Who We Are</h2>
-      <p>Discover SV Travel is led by Byron Rogel, a proud Salvadoran passionate about sharing the natural beauty, rich culture, and local secrets of El Salvador with travelers from around the world. Based in Surf City, La Libertad, we offer small-group, authentic tours designed to help visitors truly connect with our country beyond the typical tourist routes.</p>
+      <h3 id="mission-title">Our Mission</h3>
+      <p id="mission-text">
+        Our mission is to provide meaningful, safe, and unforgettable experiences that help visitors discover
+        the true essence of El Salvador — from its majestic volcanoes and colorful colonial towns to its
+        world-famous beaches and rich cultural traditions.
+      </p>
     </section>
 
+    <!-- ===============================
+         VISION
+    =============================== -->
     <section>
-      <h2>Why We Started</h2>
-      <p>Our journey began with a simple belief: El Salvador has so much more to offer than what most tourists see. Byron’s love for his homeland and desire to change outdated perceptions inspired Discover SV Travel — a project to show the real El Salvador through nature adventures, cultural heritage, and genuine local experiences.</p>
+      <h3 id="vision-title">Our Vision</h3>
+      <p id="vision-text">
+        We aim to become one of El Salvador’s leading tour providers by promoting sustainable tourism,
+        supporting local communities, and showcasing the country's beauty through responsible and engaging travel.
+      </p>
     </section>
 
+    <!-- ===============================
+         WHY CHOOSE US
+    =============================== -->
     <section>
-      <h2>What Makes Us Unique</h2>
-      <p>We keep our groups small and personal, focus on authentic local interactions, and handpick each destination so guests discover hidden gems — from crater lakes to colorful towns and coffee farms. Our tours aren’t just trips; they’re stories, connections, and memories you’ll take home.</p>
+      <h3 id="why-title">Why Choose Us?</h3>
+      <ul id="why-list">
+        <li>✔ Small-group, personalized tours</li>
+        <li>✔ Local expert guide with real cultural insight</li>
+        <li>✔ Flexible itineraries tailored to your interests</li>
+        <li>✔ Safe transportation and professional service</li>
+        <li>✔ Authentic experiences beyond typical tourist spots</li>
+      </ul>
     </section>
 
-    <section>
-      <h2>Our Mission</h2>
-      <p>To inspire travelers to discover the authentic spirit of El Salvador by offering safe, immersive, and culturally rich tours that benefit local communities and protect our natural heritage.</p>
-    </section>
-
-    <section>
-      <h2>Our Vision</h2>
-      <p>To become the most trusted local tour company in El Salvador, known for exceptional service, meaningful experiences, and sustainable tourism that leaves a positive impact on our country and guests alike.</p>
-    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Discover SV Travel. All rights reserved.</p>
+  <footer style="text-align:center;padding:20px 0;">
+    <p id="footer-text">© 2025 DiscoverSVTravel</p>
   </footer>
+
+  <!-- TRANSLATION JS -->
+  <script>
+    const aboutTranslations = {
+      en: {
+        aboutTitle: "About Us",
+        aboutSubtitle: "Who We Are",
+        aboutDescription:
+          "Discover-SV-Travel is led by Byron Rogel, a proud Salvadoran passionate about sharing the natural beauty, rich culture, and local secrets of El Salvador with travelers from around the world. Based in Surf City, La Libertad, we offer small-group, authentic tours designed to help visitors truly connect with our country beyond the typical tourist routes.",
+        missionTitle: "Our Mission",
+        missionText:
+          "Our mission is to provide meaningful, safe, and unforgettable experiences that help visitors discover the true essence of El Salvador — from its majestic volcanoes and colorful colonial towns to its world-famous beaches and rich cultural traditions.",
+        visionTitle: "Our Vision",
+        visionText:
+          "We aim to become one of El Salvador’s leading tour providers by promoting sustainable tourism, supporting local communities, and showcasing the country's beauty through responsible and engaging travel.",
+        whyTitle: "Why Choose Us?",
+        whyList: [
+          "✔ Small-group, personalized tours",
+          "✔ Local expert guide with real cultural insight",
+          "✔ Flexible itineraries tailored to your interests",
+          "✔ Safe transportation and professional service",
+          "✔ Authentic experiences beyond typical tourist spots"
+        ],
+        footer: "© 2025 DiscoverSVTravel"
+      },
+
+      es: {
+        aboutTitle: "Sobre Nosotros",
+        aboutSubtitle: "Quiénes Somos",
+        aboutDescription:
+          "Discover-SV-Travel está dirigido por Byron Rogel, un orgulloso salvadoreño apasionado por compartir la belleza natural, la rica cultura y los secretos locales de El Salvador con viajeros de todo el mundo. Con sede en Surf City, La Libertad, ofrecemos tours auténticos en grupos pequeños diseñados para ayudar a los visitantes a conectarse realmente con nuestro país más allá de las rutas turísticas típicas.",
+        missionTitle: "Nuestra Misión",
+        missionText:
+          "Nuestra misión es brindar experiencias significativas, seguras e inolvidables que ayuden a los visitantes a descubrir la verdadera esencia de El Salvador — desde sus majestuosos volcanes y coloridas ciudades coloniales hasta sus playas mundialmente famosas y sus ricas tradiciones culturales.",
+        visionTitle: "Nuestra Visión",
+        visionText:
+          "Aspiramos a convertirnos en uno de los principales proveedores de tours en El Salvador promoviendo el turismo sostenible, apoyando a las comunidades locales y mostrando la belleza del país a través de viajes responsables y enriquecedores.",
+        whyTitle: "¿Por Qué Elegirnos?",
+        whyList: [
+          "✔ Tours personalizados en grupos pequeños",
+          "✔ Guía local experto con verdadero conocimiento cultural",
+          "✔ Itinerarios flexibles adaptados a tus intereses",
+          "✔ Transporte seguro y servicio profesional",
+          "✔ Experiencias auténticas más allá de los sitios turísticos comunes"
+        ],
+        footer: "© 2025 DiscoverSVTravel"
+      }
+    };
+
+    let lang = localStorage.getItem("lang") || "en";
+
+    function translateAbout() {
+      const t = aboutTranslations[lang];
+
+      document.getElementById("about-title").textContent = t.aboutTitle;
+      document.getElementById("about-subtitle").textContent = t.aboutSubtitle;
+      document.getElementById("about-description").textContent = t.aboutDescription;
+
+      document.getElementById("mission-title").textContent = t.missionTitle;
+      document.getElementById("mission-text").textContent = t.missionText;
+
+      document.getElementById("vision-title").textContent = t.visionTitle;
+      document.getElementById("vision-text").textContent = t.visionText;
+
+      document.getElementById("why-title").textContent = t.whyTitle;
+
+      const list = document.getElementById("why-list");
+      list.innerHTML = "";
+      t.whyList.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+
+      document.getElementById("footer-text").textContent = t.footer;
+      document.getElementById("lang-toggle").textContent = lang === "en" ? "ES" : "EN";
+    }
+
+    document.getElementById("lang-toggle").addEventListener("click", () => {
+      lang = lang === "en" ? "es" : "en";
+      localStorage.setItem("lang", lang);
+      translateAbout();
+    });
+
+    translateAbout();
+  </script>
+
 </body>
 </html>
