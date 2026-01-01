@@ -85,7 +85,7 @@
   <main>
     <h2 id="page-h2">Discover Your Next Adventure — Explore Our Exclusive Tours Across El Salvador</h2>
 
-    <p id="intro">At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country’s breathtaking landscapes, rich history, and vibrant culture. Whether you’re seeking thrilling volcano hikes, relaxing beach escapes, or cultural explorations, our carefully curated small-group tours offer something unforgettable for every traveler. Let us guide you on your next adventure and help you create lasting memories. All tours include transportation and guide.</p>
+    <p id="intro">At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country's breathtaking landscapes, rich history, and vibrant culture. Whether you're seeking thrilling volcano hikes, relaxing beach escapes, or cultural explorations, our carefully curated small-group tours offer something unforgettable for every traveler. Let us guide you on your next adventure and help you create lasting memories. All tours include transportation and guide.</p>
 
     <!-- ===== Tours (8 sections) ===== -->
 
@@ -100,23 +100,24 @@
 
   <h3 id="title-1">Crater & Capital Culture Experience</h3>
 
-  <p class="tour-summary">
+  <p id="desc-1" class="tour-summary">
     Volcano views and historic downtown San Salvador in one unforgettable day.
   </p>
 
-  <div class="price-card">
-    <span class="price-main">$75 per person</span>
-    <span class="price-note">$100 solo traveler</span>
-  </div>
+  <p class="story" id="story-1"><strong>Walk the rim of an active volcano crater, then explore the vibrant heart of San Salvador — where colonial history meets modern culture.</strong></p>
 
-  <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Crater%20%26%20Capital%20Culture%20Experience%20tour.">
-    <button class="book-btn">Book Now</button>
-  </a>
+  <div class="meta">
+    <div class="price-card" data-price="75">
+      <span class="price-small" id="price-1">$75 per person</span>
+      <span class="price-note" id="price-note-1">Minimum 4 travelers • Solo traveler: $100</span>
+    </div>
+    <a href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Crater%20%26%20Capital%20Culture%20Experience%20tour.">
+      <button class="book-btn" id="book-btn-1">Book Now</button>
+    </a>
+  </div>
 </section>
 
 
-
-    <!-- Other tours follow same structure — preserving ids for translation -->
 
     <!-- Tour 2 -->
 <section class="tour-card">
@@ -131,7 +132,7 @@
 
   <p id="desc-2">Start your day hiking through lush trails to reach the hidden waterfalls of Tamanique, where you can swim and even try cliff jumping. After cooling off, head to the surf town of El Tunco to enjoy local restaurants, artisan shops, and a spectacular Pacific sunset. A perfect mix of adventure and beach life in one tour.</p>
 
-  <p class="story" id="story-2"><strong>Climb hidden trails to discover emerald waterfalls, then end your day watching the sun melt into the Pacific at El Tunco’s iconic rock arch.</strong></p>
+  <p class="story" id="story-2"><strong>Climb hidden trails to discover emerald waterfalls, then end your day watching the sun melt into the Pacific at El Tunco's iconic rock arch.</strong></p>
 
   <div class="meta">
     <div class="price-card" data-price="50">
@@ -157,7 +158,7 @@
       style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
   </div>
 
-  <p id="desc-3">Challenge yourself with a guided hike to the summit of Ilamatepec, El Salvador’s highest volcano. At the top, marvel at the vivid turquoise crater lake and sweeping mountain views. After the hike, relax at the panoramic Lake Coatepeque — take stunning photos, enjoy a lakeside lunch, or even rent a waverunner to make the most of your day.</p>
+  <p id="desc-3">Challenge yourself with a guided hike to the summit of Ilamatepec, El Salvador's highest volcano. At the top, marvel at the vivid turquoise crater lake and sweeping mountain views. After the hike, relax at the panoramic Lake Coatepeque — take stunning photos, enjoy a lakeside lunch, or even rent a waverunner to make the most of your day.</p>
 
   <p class="story" id="story-3"><strong>They call it the sleeping giant — crowned by a turquoise crater lake that leaves even locals breathless. At the bottom, Lake Coatepeque sparkles like a jewel.</strong></p>
 
@@ -185,7 +186,7 @@
       style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
   </div>
 
-  <p id="desc-4">Discover the colonial charm of Suchitoto with its cobbled streets, art galleries, and historic churches. Visit beautiful Lake Suchitlán and learn about the region’s indigo dye tradition through an interactive workshop or artisan demo. A relaxing day full of history, culture, and local flavors.</p>
+  <p id="desc-4">Discover the colonial charm of Suchitoto with its cobbled streets, art galleries, and historic churches. Visit beautiful Lake Suchitlán and learn about the region's indigo dye tradition through an interactive workshop or artisan demo. A relaxing day full of history, culture, and local flavors.</p>
 
   <p class="story" id="story-4"><strong>Cobblestone streets, whitewashed churches, and stories painted in indigo — Suchitoto feels frozen in time, yet alive with local art and tradition.</strong></p>
 
@@ -241,7 +242,7 @@
       style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
   </div>
 
-  <p id="desc-6">Journey to El Salvador’s highest point and explore the misty cloud forest of El Pital. Enjoy cool mountain air, breathtaking views, and a relaxing nature walk.</p>
+  <p id="desc-6">Journey to El Salvador's highest point and explore the misty cloud forest of El Pital. Enjoy cool mountain air, breathtaking views, and a relaxing nature walk.</p>
 
   <p class="story" id="story-6"><strong>In the misty highlands, ancient pines whisper secrets, and the cool air feels like stepping into another world far from the tropical coast.</strong></p>
 
@@ -258,8 +259,34 @@
 </section>
 
 
-    <!-- Tour 7 -->
+    <!-- Tour 7 - Added missing tour -->
+<section class="tour-card">
+  <h3 id="title-7">Beach & Surf Experience: El Sunzal + El Zonte</h3>
 
+  <div class="images" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <img src="Images/El_Sunzal.jpg" alt="El Sunzal Beach"
+      style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
+    <img src="Images/El_Zonte.jpg" alt="El Zonte Beach"
+      style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
+  </div>
+
+  <p id="desc-7">Spend a day exploring two of El Salvador's most famous surf beaches. Start at El Sunzal, known for its consistent right-hand point break, perfect for surfers of all levels. Then visit the laid-back village of El Zonte, where you can relax, enjoy fresh seafood, or take a surf lesson from local instructors. A perfect day for beach lovers and wave enthusiasts.</p>
+
+  <p class="story" id="story-7"><strong>Where consistent waves meet laid-back vibes — from the legendary breaks of El Sunzal to the bohemian charm of El Zonte, experience the soul of Salvadoran surf culture.</strong></p>
+
+  <div class="meta">
+    <div class="price-card" data-price="50">
+      <span class="price-small" id="price-7">From $50 per person</span>
+      <span class="price-note" id="price-note-7">Minimum 4 people • $75 solo traveler</span>
+    </div>
+    <a id="link-7"
+      href="https://wa.me/50372593558?text=Hi!%20I%20want%20to%20book%20the%20Beach%20%26%20Surf%20Experience%20tour.">
+      <button class="book-btn" id="book-btn-7">Book Now</button>
+    </a>
+  </div>
+</section>
+
+    <!-- Tour 8 -->
 <section class="tour-card">
   <h3 id="title-8">Mayan Ruins Combo: Tazumal + Joya de Cerén</h3>
 
@@ -270,7 +297,7 @@
       style="width:100%;max-height:220px;object-fit:cover;border-radius:6px;">
   </div>
 
-  <p id="desc-8">Step back in time on this tour of El Salvador’s top archaeological sites. Explore the impressive ruins of Tazumal in Chalchuapa and visit the UNESCO World Heritage site of Joya de Cerén, known as the “Pompeii of the Americas” for its perfectly preserved ancient village.</p>
+  <p id="desc-8">Step back in time on this tour of El Salvador's top archaeological sites. Explore the impressive ruins of Tazumal in Chalchuapa and visit the UNESCO World Heritage site of Joya de Cerén, known as the "Pompeii of the Americas" for its perfectly preserved ancient village.</p>
 
   <p class="story" id="story-8"><strong>Walk among ancient pyramids and preserved villages, and feel the echoes of ceremonies and daily life from over a thousand years ago.</strong></p>
 
@@ -308,6 +335,26 @@
           <div class="caption" id="cap-3">Ilamatepec</div>
         </div>
 
+        <div class="gallery-item" data-type="image" data-src="Images/Suchitoto_Church.jpg" tabindex="0">
+          <img src="Images/Suchitoto_Church.jpg" alt="Suchitoto Church" />
+          <div class="caption" id="cap-4">Suchitoto</div>
+        </div>
+
+        <div class="gallery-item" data-type="image" data-src="Images/Cafe_Albania_Bike_Zipline.jpg" tabindex="0">
+          <img src="Images/Cafe_Albania_Bike_Zipline.jpg" alt="Cafe Albania" />
+          <div class="caption" id="cap-5">Café Albania</div>
+        </div>
+
+        <div class="gallery-item" data-type="image" data-src="Images/El_Pital.jpg" tabindex="0">
+          <img src="Images/El_Pital.jpg" alt="El Pital" />
+          <div class="caption" id="cap-6">El Pital</div>
+        </div>
+
+        <!-- Video items (uncommented) -->
+        <div class="gallery-item" data-type="video" data-src="Images/El_Salvador_Impresionante.mp4" tabindex="0">
+          <video src="Images/El_Salvador_Impresionante.mp4" muted loop></video>
+          <div class="caption" id="cap-7">El Salvador Video</div>
+        </div>
 
     </section>
 
@@ -342,7 +389,7 @@
   </section>
 
   <footer style="text-align:center;padding:20px 0;">
-    <p>© 2025 Discover SV Travel · Authentic El Salvador Tours</p>
+    <p id="footer-text">© 2025 Discover SV Travel · Authentic El Salvador Tours</p>
   </footer>
 
   <!-- Lightbox -->
@@ -362,22 +409,24 @@
         headerSubtitle: "More than tours — we share authentic Salvadoran stories and adventures",
         navHome: "Home", navAbout: "About", navContact: "Contact",
         pageH2: "Discover Your Next Adventure — Explore Our Exclusive Tours Across El Salvador",
-        intro: `At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country’s breathtaking landscapes, rich history, and vibrant culture. Whether you’re seeking thrilling volcano hikes, relaxing beach escapes, or cultural explorations, our carefully curated small-group tours offer something unforgettable for every traveler. Let us guide you on your next adventure and help you create lasting memories.`,
+        intro: `At Discover-SV-Travel, we believe that the best way to truly experience El Salvador is through authentic, immersive tours that showcase the country's breathtaking landscapes, rich history, and vibrant culture. Whether you're seeking thrilling volcano hikes, relaxing beach escapes, or cultural explorations, our carefully curated small-group tours offer something unforgettable for every traveler. Let us guide you on your next adventure and help you create lasting memories.`,
         // Tours
-        title1: "Crater & Capital Culture Experience (Full-Day)", desc1: document.getElementById('desc-1') ? document.getElementById('desc-1').textContent : '', story1: document.getElementById('story-1') ? document.getElementById('story-1').innerText : '',
-        title2: "El Tunco + Tamanique Waterfalls Adventure (Half to Full-Day)", desc2: document.getElementById('desc-2') ? document.getElementById('desc-2').textContent : '', story2: document.getElementById('story-2') ? document.getElementById('story-2').innerText : '',
-        title3: "Ilamatepec Volcano Hike + Lago Coatepeque", desc3: document.getElementById('desc-3') ? document.getElementById('desc-3').textContent : '', story3: document.getElementById('story-3') ? document.getElementById('story-3').innerText : '',
-        title4: "Suchitoto Cultural Experience", desc4: document.getElementById('desc-4') ? document.getElementById('desc-4').textContent : '', story4: document.getElementById('story-4') ? document.getElementById('story-4').innerText : '',
-        title5: "Ruta de las Flores Coffee & Culture Day", desc5: document.getElementById('desc-5') ? document.getElementById('desc-5').textContent : '', story5: document.getElementById('story-5') ? document.getElementById('story-5').innerText : '',
-        title6: "El Pital Highland Escape", desc6: document.getElementById('desc-6') ? document.getElementById('desc-6').textContent : '', story6: document.getElementById('story-6') ? document.getElementById('story-6').innerText : '',
-        title7: "Mayan Ruins Combo: Tazumal + Joya de Cerén", desc8: document.getElementById('desc-7') ? document.getElementById('desc-7').textContent : '', story7: document.getElementById('story-7') ? document.getElementById('story-7').innerText : '',
+        title1: "Crater & Capital Culture Experience (Full-Day)", desc1: "Volcano views and historic downtown San Salvador in one unforgettable day.", story1: "Walk the rim of an active volcano crater, then explore the vibrant heart of San Salvador — where colonial history meets modern culture.",
+        title2: "El Tunco + Tamanique Waterfalls Adventure (Half to Full-Day)", desc2: "Start your day hiking through lush trails to reach the hidden waterfalls of Tamanique, where you can swim and even try cliff jumping. After cooling off, head to the surf town of El Tunco to enjoy local restaurants, artisan shops, and a spectacular Pacific sunset. A perfect mix of adventure and beach life in one tour.", story2: "Climb hidden trails to discover emerald waterfalls, then end your day watching the sun melt into the Pacific at El Tunco's iconic rock arch.",
+        title3: "Ilamatepec Volcano Hike + Lago Coatepeque", desc3: "Challenge yourself with a guided hike to the summit of Ilamatepec, El Salvador's highest volcano. At the top, marvel at the vivid turquoise crater lake and sweeping mountain views. After the hike, relax at the panoramic Lake Coatepeque — take stunning photos, enjoy a lakeside lunch, or even rent a waverunner to make the most of your day.", story3: "They call it the sleeping giant — crowned by a turquoise crater lake that leaves even locals breathless. At the bottom, Lake Coatepeque sparkles like a jewel.",
+        title4: "Suchitoto Cultural Experience", desc4: "Discover the colonial charm of Suchitoto with its cobbled streets, art galleries, and historic churches. Visit beautiful Lake Suchitlán and learn about the region's indigo dye tradition through an interactive workshop or artisan demo. A relaxing day full of history, culture, and local flavors.", story4: "Cobblestone streets, whitewashed churches, and stories painted in indigo — Suchitoto feels frozen in time, yet alive with local art and tradition.",
+        title5: "Ruta de las Flores Coffee & Culture Day", desc5: "Travel along the scenic Ruta de las Flores, renowned for its colorful colonial towns, vibrant murals, and lush coffee farms. Experience the thrill of Café Albania with its famous giant maze and swing. Wrap up your journey with a guided tour of a local coffee plantation — perfect for foodies, coffee lovers, and cultural explorers alike.", story5: "Through winding mountain roads, vibrant murals, and rich coffee aromas — discover why this route is loved by artists, foodies, and dreamers alike.",
+        title6: "El Pital Highland Escape", desc6: "Journey to El Salvador's highest point and explore the misty cloud forest of El Pital. Enjoy cool mountain air, breathtaking views, and a relaxing nature walk.", story6: "In the misty highlands, ancient pines whisper secrets, and the cool air feels like stepping into another world far from the tropical coast.",
+        title7: "Beach & Surf Experience: El Sunzal + El Zonte", desc7: "Spend a day exploring two of El Salvador's most famous surf beaches. Start at El Sunzal, known for its consistent right-hand point break, perfect for surfers of all levels. Then visit the laid-back village of El Zonte, where you can relax, enjoy fresh seafood, or take a surf lesson from local instructors. A perfect day for beach lovers and wave enthusiasts.", story7: "Where consistent waves meet laid-back vibes — from the legendary breaks of El Sunzal to the bohemian charm of El Zonte, experience the soul of Salvadoran surf culture.",
+        title8: "Mayan Ruins Combo: Tazumal + Joya de Cerén", desc8: "Step back in time on this tour of El Salvador's top archaeological sites. Explore the impressive ruins of Tazumal in Chalchuapa and visit the UNESCO World Heritage site of Joya de Cerén, known as the 'Pompeii of the Americas' for its perfectly preserved ancient village.", story8: "Walk among ancient pyramids and preserved villages, and feel the echoes of ceremonies and daily life from over a thousand years ago.",
         galleryTitle: "Gallery", gallerySub: "Photos & videos from our tours — click to enlarge",
         reviewsTitle: "Traveler Reviews", leaveReview: "Leave a Review",
         labelName: "Your Name:", labelRating: "Rating:", labelReview: "Your Review:", submitReview: "Submit Review",
-        footer: "© 2025 DiscoverSVTravel",
-        priceFrom: "From $75 per person",
-        priceNote: "Minimum 4 people • $100 solo traveler"
-
+        footer: "© 2025 Discover SV Travel · Authentic El Salvador Tours",
+        priceFrom: "From $50 per person",
+        priceFrom75: "$75 per person",
+        priceNote: "Minimum 4 people • $75 solo traveler",
+        priceNote75: "Minimum 4 travelers • Solo traveler: $100"
       },
       es: {
         headerTitle: "Discover-SV-Travel",
@@ -386,175 +435,7 @@
         pageH2: "Descubre tu próxima aventura — Explora nuestros tours exclusivos por El Salvador",
         intro: `En Discover-SV-Travel creemos que la mejor manera de experimentar El Salvador es con tours auténticos e inmersivos que muestran los paisajes impresionantes, la historia rica y la vibrante cultura del país. Ya sea que busques caminatas por volcanes, escapadas a la playa o exploraciones culturales, nuestros tours en grupos pequeños ofrecen algo inolvidable para cada viajero. Permítenos guiarte en tu próxima aventura y ayudarte a crear recuerdos duraderos.`,
         // Tours (Spanish)
-        title1: "Experiencia Cráter y Centro Histórico (Día Completo)", desc1: document.getElementById('desc-1') ? document.getElementById('desc-1').textContent : '', story1: document.getElementById('story-1') ? document.getElementById('story-1').innerText : '',
-        title2: "El Tunco + Cascadas de Tamanique (Medio a Día Completo)", desc2: document.getElementById('desc-2') ? document.getElementById('desc-2').textContent : '', story2: document.getElementById('story-2') ? document.getElementById('story-2').innerText : '',
-        title3: "Ascenso al Volcán Ilamatepec + Lago Coatepeque", desc3: document.getElementById('desc-3') ? document.getElementById('desc-3').textContent : '', story3: document.getElementById('story-3') ? document.getElementById('story-3').innerText : '',
-        title4: "Experiencia Cultural en Suchitoto", desc4: document.getElementById('desc-4') ? document.getElementById('desc-4').textContent : '', story4: document.getElementById('story-4') ? document.getElementById('story-4').innerText : '',
-        title5: "Ruta de las Flores: Café y Cultura", desc5: document.getElementById('desc-5') ? document.getElementById('desc-5').textContent : '', story5: document.getElementById('story-5') ? document.getElementById('story-5').innerText : '',
-        title6: "Escapada a las Alturas de El Pital", desc6: document.getElementById('desc-6') ? document.getElementById('desc-6').textContent : '', story6: document.getElementById('story-6') ? document.getElementById('story-6').innerText : '',
-        title7: "Ruta Maya: Tazumal + Joya de Cerén", desc7: document.getElementById('desc-7') ? document.getElementById('desc-7').textContent : '', story7: document.getElementById('story-7') ? document.getElementById('story-7').innerText : '',
-        galleryTitle: "Galería", gallerySub: "Fotos y videos de nuestros tours — haz clic para ampliar",
-        reviewsTitle: "Reseñas de Viajeros", leaveReview: "Deja una Reseña",
-        labelName: "Tu Nombre:", labelRating: "Calificación:", labelReview: "Tu Reseña:", submitReview: "Enviar Reseña",
-        footer: "© 2025 DiscoverSVTravel",
-        priceFrom: "Desde $75 por persona",
-        priceNote: "Mín. 4 personas • $100 viajero solo"
-
-      }
-    };
-
-    // language state
-    let lang = localStorage.getItem('lang') || 'en';
-
-    function setTextIfExists(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
-
-    function applyTranslations() {
-      const t = translationsFull[lang];
-      setTextIfExists('header-title', t.headerTitle);
-      setTextIfExists('header-sub', t.headerSubtitle);
-      setTextIfExists('nav-home', t.navHome);
-      setTextIfExists('nav-about', t.navAbout);
-      setTextIfExists('nav-contact', t.navContact);
-      setTextIfExists('page-h2', t.pageH2);
-      setTextIfExists('intro', t.intro);
-
-      // tours titles & descriptions
-      for (let i=1;i<=8;i++){
-        setTextIfExists(`title-${i}`, t[`title${i}`] || document.getElementById(`title-${i}`)?.textContent);
-        // Only replace desc/story when we have translations inside object (we preserved original desc fallback above)
-        if (t[`desc${i}`]) setTextIfExists(`desc-${i}`, t[`desc${i}`]);
-        if (t[`story${i}`] && document.getElementById(`story-${i}`)) {
-          const s = document.getElementById(`story-${i}`);
-          if (s.querySelector('strong')) s.querySelector('strong').textContent = t[`story${i}`];
-          else s.textContent = t[`story${i}`];
-        }
-        // price texts
-        setTextIfExists(`price-${i}`, t.priceFrom.replace(/\$?50/, '$50'));
-        setTextIfExists(`price-note-${i}`, t.priceNote);
-      }
-
-      setTextIfExists('gallery-title', t.galleryTitle);
-      setTextIfExists('gallery-sub', t.gallerySub);
-      setTextIfExists('reviews-title', t.reviewsTitle);
-      setTextIfExists('leave-review-title', t.leaveReview);
-      setTextIfExists('label-name', t.labelName);
-      setTextIfExists('label-rating', t.labelRating);
-      setTextIfExists('label-review', t.labelReview);
-      setTextIfExists('submit-review-btn', t.submitReview);
-      setTextIfExists('footer-text', t.footer);
-
-      // update individual price-cards (they use price-note ids)
-      for (let i=1;i<=8;i++){
-        const priceCard = document.querySelector(`#price-note-${i}`);
-        if(priceCard) priceCard.textContent = t.priceNote;
-        const priceSmall = document.querySelector(`#price-${i}`);
-        if(priceSmall) priceSmall.textContent = (lang==='es' ? t.priceFrom : t.priceFrom);
-      }
-
-      // toggle button label
-      const toggleBtn = document.getElementById('lang-toggle');
-      if (toggleBtn) toggleBtn.textContent = lang === 'en' ? 'ES' : 'EN';
-    }
-
-    // initialize translation text nodes that might not exist yet
-    // Ensure each price-note element exists (we created price-note-# ids)
-    for (let i=1;i<=8;i++){
-      const noteId = `price-note-${i}`;
-      const card = document.getElementById(noteId);
-      if (!card){
-        const el = document.getElementById(`price-note-${i}`);
-      }
-    }
-
-    // toggle handler
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      lang = (lang === 'en') ? 'es' : 'en';
-      localStorage.setItem('lang', lang);
-      applyTranslations();
-    });
-
-    // apply on load
-    applyTranslations();
-
-    /* ================================
-       Lightbox gallery JS
-    ================================ */
-    const galleryGrid = document.getElementById('gallery-grid');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxInner = document.getElementById('lightboxInner');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    function openLightbox(type, src, alt) {
-      lightboxInner.innerHTML = '';
-      if (type === 'video') {
-        const v = document.createElement('video'); v.src = src; v.controls = true; v.autoplay = true; v.style.maxHeight = '90vh'; lightboxInner.appendChild(v);
-      } else {
-        const img = document.createElement('img'); img.src = src; img.alt = alt || ''; lightboxInner.appendChild(img);
-      }
-      lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden','false');
-    }
-    function closeLightbox() { lightbox.classList.remove('open'); lightboxInner.innerHTML=''; lightbox.setAttribute('aria-hidden','true'); }
-
-    galleryGrid?.addEventListener('click', (e)=>{ const item = e.target.closest('.gallery-item'); if(!item) return; const type = item.getAttribute('data-type')||'image'; const src = item.getAttribute('data-src'); const alt = item.querySelector('img')?.alt||''; openLightbox(type, src, alt); });
-    galleryGrid?.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ const item = e.target.closest('.gallery-item'); if(!item) return; const type = item.getAttribute('data-type')||'image'; const src = item.getAttribute('data-src'); const alt = item.querySelector('img')?.alt||''; openLightbox(type, src, alt); }});
-    lightboxClose?.addEventListener('click', closeLightbox);
-    lightbox?.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
-
-    /* ================================
-       Firestore Reviews (existing setup preserved)
-    ================================ */
-    // NOTE: Firebase SDK must be loaded in page for the following to work
-    function escapeHtml(text){ if (!text && text !== 0) return ''; return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
-
-    function loadReviews(){
-      const reviewList = document.getElementById('review-list'); if(!reviewList) return; 
-      if(typeof db === 'undefined') return; // firebase not loaded
-      db.collection('reviews').orderBy('timestamp','desc').onSnapshot(snapshot => {
-        reviewList.innerHTML = '';
-        snapshot.forEach(doc => {
-          const r = doc.data();
-          const ts = r.timestamp && (typeof r.timestamp === 'number' ? new Date(r.timestamp) : (r.timestamp.toDate ? r.timestamp.toDate() : new Date(r.timestamp)));
-          const dateStr = ts ? ts.toLocaleDateString() : '';
-          const safeName = escapeHtml(r.name);
-          const safeReview = escapeHtml(r.review || r.text || '');
-          const rating = Math.max(0, Math.min(5, r.rating || 0));
-          const stars = '★'.repeat(rating) + '☆'.repeat(5-rating);
-
-          const card = document.createElement('div'); card.className='review-card'; card.innerHTML = `<div class="review-name">${safeName}</div><div class="review-date">${dateStr}</div><div class="review-stars">${stars}</div><p class="review-text">${safeReview}</p>`;
-          reviewList.appendChild(card);
-        });
-      });
-    }
-
-    // submit handler (if Firestore available)
-    document.getElementById('review-form')?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const name = document.getElementById('name')?.value.trim();
-      const rating = parseInt(document.getElementById('rating')?.value || 0);
-      const review = document.getElementById('review')?.value.trim();
-      if(!name || !rating || !review){ alert(lang==='es'?'Por favor completa todos los campos antes de enviar.':'Please complete all fields before submitting.'); return; }
-      if(typeof db === 'undefined'){ alert(lang==='es'?'No se puede enviar la reseña: servicio no disponible.':'Unable to submit review: service not available.'); return; }
-      await db.collection('reviews').add({ name, rating, review, timestamp: Date.now() });
-      document.getElementById('review-form').reset();
-      alert(lang==='es'?'Gracias — tu reseña fue enviada!':'Thank you — your review was submitted!');
-    });
-
-    // attempt load reviews (will do nothing if Firestore not loaded)
-    loadReviews();
-  </script>
-
-  <!-- FIREBASE SDK (CDN) - left here in page intentionally; your keys (if present) will initialize DB -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
-  <script>
-    // If you have firebaseConfig, paste here. Initialization is optional — we don't include keys here for safety.
-    try {
-      if (typeof firebase !== 'undefined' && firebase?.initializeApp) {
-        // initialize only if you provide firebaseConfig in a secure manner
-        // Example: const app = firebase.initializeApp(firebaseConfig); const db = firebase.firestore();
-      }
-    } catch (e) { console.warn('Firebase not initialized', e); }
-  </script>
-</body>
-</html>
+        title1: "Experiencia Cráter y Centro Histórico (Día Completo)", desc1: "Vistas del volcán y el centro histórico de San Salvador en un día inolvidable.", story1: "Camina por el borde del cráter de un volcán activo y luego explora el vibrante corazón de San Salvador, donde la historia colonial se encuentra con la cultura moderna.",
+        title2: "El Tunco + Cascadas de Tamanique (Medio a Día Completo)", desc2: "Comienza tu día caminando por senderos frondosos para llegar a las cascadas escondidas de Tamanique, donde puedes nadar e incluso intentar saltar desde los acantilados. Después de refrescarte, dirígete al pueblo surfista de El Tunco para disfrutar de restaurantes locales, tiendas de artesanías y una espectacular puesta de sol en el Pacífico. Una mezcla perfecta de aventura y vida playera en un solo tour.", story2: "Escalada por senderos ocultos para descubrir cascadas esmeralda, luego termina tu día viendo el sol derretirse en el Pacífico en el icónico arco rocoso de El Tunco.",
+        title3: "Ascenso al Volcán Ilamatepec + Lago Coatepeque", desc3: "Desafíate con una caminata guiada a la cima del Ilamatepec, el volcán más alto de El Salvador. En la cima, maravíllate con el vívido lago craterítico turquesa y las impresionantes vistas montañosas. Después de la caminata, relájate en el panorámico Lago Coatepeque: toma fotos impresionantes, disfruta un almuerzo junto al lago o incluso alquila una moto acuática para aprovechar al máximo tu día.", story3: "Lo llaman el gigante dormido — coronado por un lago craterítico turquesa que deja sin aliento incluso a los locales. En la base, el Lago Coatepeque brilla como una joya.",
+        title4: "Experiencia Cultural en Suchitoto", desc4: "Descubre el encanto colonial de Suchitoto con sus calles empedradas, galerías de arte e iglesias históricas. Visita el hermoso Lago Suchitlán y aprende sobre la tradición del tinte índigo de la región a través de un taller interactivo o demostración de artesanos. Un día relajante lleno de historia, cultura y sabores locales.", story4: "Calles empedradas, iglesias blanqueadas e historias pintadas en índigo — Suchitoto parece detenido en el tiempo,
