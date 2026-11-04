@@ -8,11 +8,13 @@
 </head>
 <body>
   <header>
+<button id="lang-toggle" class="lang-btn" aria-label="Cambiar a español">ES</button>
     <h1>Contact Discover SV Travel</h1>
     <p>We'd love to help you plan your next adventure in El Salvador!</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -29,9 +31,7 @@
     <section>
       <h2>Stay Connected</h2>
 <p>Subscribe to get updates on new packages and offers:</p>
-<a href="https://discoversvtravel.systeme.io/ac756fec" target="_blank">
-  <button class="subscribe-btn">Subscribe for Updates</button>
-</a>
+<a class="book-btn" href="https://discoversvtravel.systeme.io/ac756fec" target="_blank" rel="noopener noreferrer">Subscribe for Updates</a>
 
     </section>
   </main>
@@ -39,6 +39,23 @@
   <footer>
     <p>&copy; 2025 Discover SV Travel. All rights reserved.</p>
   </footer>
+<script>
+let lang="en";try{lang=localStorage.getItem("lang")==="es"?"es":"en";}catch{}
+function translate(){
+const es=lang==="es";document.documentElement.lang=lang;
+document.querySelector("header h1").textContent=es?"Contacta a Discover SV Travel":"Contact Discover SV Travel";
+document.querySelector("header p").textContent=es?"¡Te ayudamos a planificar tu próxima aventura en El Salvador!":"We'd love to help you plan your next adventure in El Salvador!";
+document.querySelectorAll("nav a").forEach((a,i)=>a.textContent=(es?["Inicio","Acerca","Contacto"]:["Home","About","Contact"])[i]);
+document.querySelectorAll("main h2").forEach((h,i)=>h.textContent=(es?["Contáctanos","Mantente al día"]:["Get in Touch","Stay Connected"])[i]);
+document.querySelectorAll("main strong").forEach((h,i)=>h.textContent=(es?["WhatsApp:","Correo:","Ubicación:"]:["WhatsApp:","Email:","Location:"])[i]);
+document.querySelector("main section:last-child p").textContent=es?"Suscríbete para recibir novedades sobre paquetes y ofertas:":"Subscribe to get updates on new packages and offers:";
+document.querySelector(".book-btn").textContent=es?"Suscribirme a las novedades":"Subscribe for Updates";
+document.querySelector("footer p").textContent="© "+new Date().getFullYear()+" Discover SV Travel. "+(es?"Todos los derechos reservados.":"All rights reserved.");
+document.getElementById("lang-toggle").textContent=es?"EN":"ES";
+}
+document.getElementById("lang-toggle").addEventListener("click",()=>{lang=lang==="en"?"es":"en";try{localStorage.setItem("lang",lang);}catch{}translate();});translate();
+</script>
 </body>
 </html>
+
 

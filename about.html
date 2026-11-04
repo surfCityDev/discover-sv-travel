@@ -147,7 +147,7 @@
   <script>
     const aboutTranslations = {
       en: {
-        aboutTitle: "Who We Are",
+        aboutTitle: "About Us", aboutSubtitle: "Who We Are",
         aboutDescription:
           "Discover-SV-Travel is led by Byron Rogel, a proud Salvadoran passionate about sharing the natural beauty, rich culture, and local secrets of El Salvador with travelers from around the world. Based in Surf City, La Libertad, we offer small-group, authentic tours designed to help visitors truly connect with our country beyond the typical tourist routes.",
         missionTitle: "Our Mission",
@@ -190,10 +190,13 @@
       }
     };
 
-    let lang = localStorage.getItem("lang") || "en";
+    let lang = "en"; try {lang = localStorage.getItem("lang") === "es" ? "es" : "en";} catch {}
 
     function translateAbout() {
       const t = aboutTranslations[lang];
+      document.documentElement.lang=lang;
+      document.getElementById("header-sub").textContent=lang==="es"?"Más que tours — compartimos historias y aventuras auténticas de El Salvador":"More than tours — we share authentic Salvadoran stories and adventures";
+      ["home","about","contact"].forEach((key,i)=>document.getElementById("nav-"+key).textContent=(lang==="es"?["Inicio","Acerca","Contacto"]:["Home","About","Contact"])[i]);
 
       document.getElementById("about-title").textContent = t.aboutTitle;
       document.getElementById("about-subtitle").textContent = t.aboutSubtitle;
@@ -215,13 +218,13 @@
         list.appendChild(li);
       });
 
-      document.getElementById("footer-text").textContent = t.footer;
+      document.getElementById("footer-text").textContent = t.footer.replace("2025", new Date().getFullYear());
       document.getElementById("lang-toggle").textContent = lang === "en" ? "ES" : "EN";
     }
 
     document.getElementById("lang-toggle").addEventListener("click", () => {
       lang = lang === "en" ? "es" : "en";
-      localStorage.setItem("lang", lang);
+      try {localStorage.setItem("lang", lang);} catch {}
       translateAbout();
     });
 
@@ -230,3 +233,4 @@
 
 </body>
 </html>
+
